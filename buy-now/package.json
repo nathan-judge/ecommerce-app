@@ -36,8 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3545",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+  "proxy": "http://localhost:3545"
 }
