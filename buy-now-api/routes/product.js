@@ -2,8 +2,7 @@ const router = require('express').Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM DETAILS
-    ;`)
+    db.query(`SELECT * FROM DETAILS;`)
       .then(data => {
         const products = data.rows;
         res.json({ products });
