@@ -7,6 +7,10 @@ const app = express()
 const port = 3545
 
 //bodyParser middleware
+
+
+
+
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -22,21 +26,23 @@ const dbParams = require("./db.js");
 const db = new Pool(dbParams);
 db.connect();
 
-// app.get("/test", (req, res) => {
-//   const user = {
-//     name: "Harry"
-//   }
+app.get("/test", (req, res) => {
+  const user = {
+    name: "Harry"
+  }
 
-//   addUser(user)
-// })
+  addUser(user)
+})
 
 //Mount all the routes
 const productRoutes = require("./routes/product");
 app.use("/api/products", productRoutes(db));
+console.log("hello1")
 
 
 
 app.get('/', (req, res) => {
+  console.log("testget")
   res.send('sup')
 })
 
