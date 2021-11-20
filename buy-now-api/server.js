@@ -19,7 +19,6 @@ app.use(
 )
 
 
-
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./db.js");
@@ -39,6 +38,11 @@ const productRoutes = require("./routes/product");
 app.use("/api/products", productRoutes(db));
 console.log("hello1")
 
+const userRoutes = require("./routes/user");
+app.use("/api/users", userRoutes(db));
+console.log("hellouser")
+
+
 
 
 app.get('/', (req, res) => {
@@ -48,8 +52,4 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
-})
-
-app.get('/', (req, res) => {
-  res.send('sup')
 })
