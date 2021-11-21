@@ -1,11 +1,15 @@
 import Searchbar from "./SearchBar";
-import './nav.scss'
+import { Link } from "react-router-dom";
+
+import "./nav.scss";
 
 function Navbar() {
   return (
     <div className="nav-bar">
-      <h1>BuyNow!</h1>
-     <Searchbar />
+      <Link to="/">
+        <h1>BuyNow!</h1>
+      </Link>
+      <Searchbar />
     </div>
   );
 }
