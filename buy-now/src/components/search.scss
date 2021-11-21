@@ -1,0 +1,39 @@
+@import '~antd/dist/antd.css';
+.ant-icon {
+  font-size: 27px;
+  cursor: pointer;
+  padding: 0.6rem;
+  color: aqua;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.search {
+  size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-text {
+  padding: 1em;
+}
+
+
+.search-text:focus {
+  outline: 0;
+}
+
+.search-icon {
+  font-size: 1rem;
+  cursor: pointer;
+}
+  
+.items-in-cart {
+  margin-top: 0.8em;
+}
+
+
