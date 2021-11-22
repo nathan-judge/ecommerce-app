@@ -1,5 +1,5 @@
 import "./search.scss";
-import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, SearchOutlined, CarTwoTone } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Badge } from "antd";
 
