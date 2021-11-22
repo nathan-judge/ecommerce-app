@@ -1,5 +1,7 @@
 import ProductInCart from "./ProductInCart";
+import helpers from "../helpers/cartSubtotal"
 import "./cart.scss";
+import { useState, useEffect } from "react";
 const carts = [
   {
     product_id: 1,
@@ -32,11 +34,22 @@ const carts = [
 
 
 function Cart() {
+  const [cart, setCart] = useState([]);
+  const [itemsCount, setItemsCount] = useState(0);
+  const [subtotal, setSubtotal] = useState(0);
+
+  useEffect(() => {
+    setCart(carts)
+    const cartCountAndTotal = helpers.cartSubtotal(cart)
+    setItemsCount(cartCountAndTotal.count)
+    setSubtotal(cartCountAndTotal.amount)
+  }, [cart, itemsCount, subtotal]);
+
   return (
     <div className="cart">
       <h1>My Cart</h1>
 
-      {carts.map((product) => {
+      {cart.map((product) => {
         return (
           <div>
             <ProductInCart
@@ -52,7 +65,7 @@ function Cart() {
         );
       })}
 
-      <h3>Subtotal(2 items):total $$</h3>
+      <h3 className="cart-total">Subtotal({itemsCount} items):${subtotal}</h3>
     </div>
   );
 }
