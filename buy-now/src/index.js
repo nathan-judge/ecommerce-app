@@ -6,16 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
+import * as themes from './theme/schema.json';
+import { setToLS } from './utils/storage';
 
+const Index = () => {
+  setToLS('all-themes', themes.default);
+  return(
+    <App />
+  )
+}
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </BrowserRouter>
+     <Index />
   </React.StrictMode>,
   document.getElementById("root")
 );

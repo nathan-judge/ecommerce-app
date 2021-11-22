@@ -13,16 +13,17 @@ function Searchbar() {
           placeholder="Search"
           name="item-to-find"
         ></input>
-        <button>
+        <button className="search-icon-btn">
           <SearchOutlined className="search-icon" />
         </button>
-      </form>
-
-      <Link to={`/cart`}>
-        <Badge offset={[-10, 12]} count={5}>
+        <Badge offset={[-5, 12]} count={5}>
           <ShoppingCartOutlined  size="large" className="ant-icon" />
         </Badge>
-      </Link>
+      </form>
+
+    
+      
+    
     </div>
   );
 }

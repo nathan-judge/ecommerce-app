@@ -1,3 +1,4 @@
+import "./productHome.scss";
 function ProductListItem() {
     return (
       <div className="ProductListItem">
