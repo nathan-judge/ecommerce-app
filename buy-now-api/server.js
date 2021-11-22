@@ -43,7 +43,7 @@ app.use("/api/users", userRoutes(db));
 console.log("hellouser")
 
 const cartRoutes = require("./routes/cart");
-app.use("/cart", cartRoutes(db));
+app.use("/api/cart", cartRoutes(db));
 
 
 

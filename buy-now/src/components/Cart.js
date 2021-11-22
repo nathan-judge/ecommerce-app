@@ -2,6 +2,7 @@ import ProductInCart from "./ProductInCart";
 import helpers from "../helpers/cartSubtotal"
 import "./cart.scss";
 import { useState, useEffect } from "react";
+import axios from "axios";
 const carts = [
   {
     product_id: 1,
@@ -39,6 +40,13 @@ function Cart() {
   const [subtotal, setSubtotal] = useState(0);
 
   useEffect(() => {
+    const cartId = localStorage.getItem("cart_id")
+    const url = "/api/cart/" //+ cartId
+    axios.get(url)
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch()
     setCart(carts)
     const cartCountAndTotal = helpers.cartSubtotal(cart)
     setItemsCount(cartCountAndTotal.count)

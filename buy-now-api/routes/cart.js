@@ -5,7 +5,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM carts;`)
       .then(data => {
-        console.log("Hello")
+        console.log("Hello carts")
         const products = data.rows;
         res.json({ products });
       })
@@ -16,7 +16,7 @@ module.exports = (db) => {
       });
   });
   router.post("/", (req, res) => {
-    db.query(`SELECT * FROM products;`)
+    db.query(`SELECT * FROM carts;`)
       .then(data => {
         console.log("Hello")
         const products = data.rows;
