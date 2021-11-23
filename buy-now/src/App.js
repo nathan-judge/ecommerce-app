@@ -2,8 +2,17 @@ import "./App.css";
 import React, { useState, useEffect } from 'react';
 import Products from "./components/Products";
 import { commerce } from './commerce';
-function App({cart, setCart}) {
+import ProductDetails from "./components/ProductDetails";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Cart from "./components/Cart"
+import CartProviderState from "./components/CartProviderState";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+
+function App() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState({});
+  console.log('products :', products);
   
 
   const fetchProducts = async() => {
@@ -28,12 +37,20 @@ function App({cart, setCart}) {
     fetchCart();
   }, []);
 
- 
-  console.log("cart total item is: ", cart.total_items)
+
 
   return (
     <div className="App">
-      <h1 style={{ paddingTop: 100 }}><Products products={products} onAddCart={handleAddToCart}/></h1>
+      {/* <h1 style={{ paddingTop: 100 }}><Products products={products} onAddCart={handleAddToCart}/></h1> */}
+      <BrowserRouter>
+      <Navbar cart={cart}/>
+      <Routes>
+      
+        <Route path="/" element={<Home products={products} onAddCart={handleAddToCart} />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/details" element={<ProductDetails id={products.id} image={products.image} name={products.name} description={products.description}/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }

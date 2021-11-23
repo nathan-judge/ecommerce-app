@@ -1,7 +1,13 @@
 import { Card, Col, Row, Menu, Button } from "antd";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function Product(props) {
-  
+ 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/details', { replace: true });
+  }
   return (
     <div >
 
@@ -11,13 +17,18 @@ function Product(props) {
             <span className="cart-product-detail">
               <h3>{props.name}</h3>
               <p dangerouslySetInnerHTML={{__html: props.description}}/>
-              <span>In Stock: {props.inventory_left}</span>
+              
+              <span>{props.isSoldOut? "Out of Stock" : "In Stock"}</span>
               <span className="cart-edit">
               <div>
                 <Button onClick={() => props.onAddCart(props.id, 1)}>Add to Cart</Button>
               </div>
               <div>
-                <Button>Details</Button>
+                <Link to="/details">
+                  <Button>Details</Button>
+                </Link>
+               
+                
               </div>
           
               </span>

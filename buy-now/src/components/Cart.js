@@ -2,16 +2,15 @@ import ProductInCart from "./ProductInCart";
 import "./cart.scss";
 import { commerce } from '../commerce';
 import { useState, useEffect } from "react";
-
-
+import Navbar from "./Navbar";
 
 function Cart() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState({subtotal: {}});
   const [lineItems, setLineItems] = useState([]);
 
   const fetchCart = async() => {
     const cart = await commerce.cart.retrieve();
-    console.log(cart)
+    console.log("cart is: ", cart)
     setLineItems(cart.line_items);
     setCart(cart);
   }
@@ -39,7 +38,7 @@ function Cart() {
         );
       })}
 
-      <h3>Subtotal({cart.total_items} items):total {cart.subtotal.formatted_with_symbol}</h3>
+      <h3>Subtotal({cart.total_items} items) :total{cart.subtotal.formatted_with_symbol}</h3>
     </div>
   );
 }

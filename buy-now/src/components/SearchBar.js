@@ -19,7 +19,7 @@ function Searchbar({cart}) {
       </form>
 
       <Link to={`/cart`}>
-        <Badge offset={[-10, 12]} count={cart.total_items}>
+        <Badge offset={[-10, 12]} count={cart.total_unique_items}>
           <ShoppingCartOutlined  size="large" className="ant-icon" />
         </Badge>
       </Link>

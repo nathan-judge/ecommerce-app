@@ -10,9 +10,9 @@ import CartProviderState from "./components/CartProviderState";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <CartProviderState/>
-    </BrowserRouter>
+    
+      <App/>
+    
   </React.StrictMode>,
   document.getElementById("root")
 );
