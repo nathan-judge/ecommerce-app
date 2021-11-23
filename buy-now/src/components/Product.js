@@ -7,7 +7,7 @@ function Product(props) {
 
         <Card className="cart-card" style={{ width: '100%' }}>
           <div className="cart-item">
-            <img width="100" src={props.image.url} alt={props.name}></img>
+            <img height="200px" src={props.image.url} alt={props.name}></img>
             <span className="cart-product-detail">
               <h3>{props.name}</h3>
               <p dangerouslySetInnerHTML={{__html: props.description}}/>

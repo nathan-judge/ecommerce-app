@@ -3,7 +3,7 @@ import { ShoppingCartOutlined, SearchOutlined, CarTwoTone } from "@ant-design/ic
 import { Link } from "react-router-dom";
 import { Badge } from "antd";
 
-function Searchbar() {
+function Searchbar({cart}) {
   return (
     <div className="forms">
       <form className="search" action="/" method="get">
@@ -19,7 +19,7 @@ function Searchbar() {
       </form>
 
       <Link to={`/cart`}>
-        <Badge offset={[-10, 12]} count={5}>
+        <Badge offset={[-10, 12]} count={cart.total_items}>
           <ShoppingCartOutlined  size="large" className="ant-icon" />
         </Badge>
       </Link>

@@ -6,15 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
+import CartProviderState from "./components/CartProviderState";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+      <CartProviderState/>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

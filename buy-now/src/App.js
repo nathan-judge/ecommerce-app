@@ -2,9 +2,9 @@ import "./App.css";
 import React, { useState, useEffect } from 'react';
 import Products from "./components/Products";
 import { commerce } from './commerce';
-function App() {
+function App({cart, setCart}) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState({});
+  
 
   const fetchProducts = async() => {
     const { data } = await commerce.products.list();
