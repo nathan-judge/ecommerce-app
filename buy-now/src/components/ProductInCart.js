@@ -1,22 +1,26 @@
 //import 'antd/dist/antd.css';
 import { Card, Button } from "antd";
 import { useState, useEffect } from "react";
-import { commerce } from "../commerce";
+import apiHelpers from "../helpers/api-helper"
 
 function ProductInCart(props) {
   const [product, setProduct] = useState({ is: {} });
   const [quantity, setQuantity] = useState(props.cart_quantity);
 
-  const fetchProduct = async () => {
-    const localProduct = await commerce.products.retrieve(props.product_id);
+  const getProduct = async () => {
+    try
+    {const localProduct = await apiHelpers.fetchProduct(props.product_id);
     console.log(localProduct, "local");
-    setProduct(localProduct);
+    setProduct(localProduct);}
+    catch(e) {
+      console.log("Error fetching product", e)
+    }
   };
   const changeQuantity = async (newQuantity) => {
     const oldQuantity = quantity;
     setQuantity(newQuantity);
     try {
-      await commerce.cart.update(props.line_item_id, { quantity: newQuantity });
+      await apiHelpers.updateCart(props.line_item_id, {quantity: newQuantity})
       props.fetchCart();
     } catch (e) {
       console.log(e);
@@ -24,7 +28,7 @@ function ProductInCart(props) {
     }
   };
   useEffect(() => {
-    fetchProduct();
+    getProduct();
   }, []);
 
   return (
