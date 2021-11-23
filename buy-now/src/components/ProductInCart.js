@@ -1,22 +1,32 @@
 //import 'antd/dist/antd.css';
-import { Card, Col, Row, Menu, Button } from "antd";
-
-
+import { Card,  Button } from "antd";
+import { useState, useEffect } from "react";
+import { commerce } from '../commerce';
 
 function ProductInCart(props) {
-  //const {props} = image, name, quantity, price
-  return (
-    <div >
+  const [product, setProduct] = useState({is: {}});
+  
+  const fetchProduct = async() => {
+    const localProduct = await commerce.products.retrieve(props.product_id);
+    console.log(localProduct, "local")
+    setProduct(localProduct);
+  }
 
-        <Card className="cart-card" style={{ width: '100%' }}>
-          <div className="cart-item">
-            <img width="100" src={props.image} alt={props.name}></img>
-            <span className="cart-product-detail">
-              <h3>{props.name}</h3>
-              <p>{props.description}</p>
-              <p>${props.price}</p>
-              <p>In Stock</p>
-              <span className="cart-edit">
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+
+  return (
+    <div>
+      <Card className="cart-card" style={{ width: "100%" }}>
+        <div className="cart-item">
+          <img height="200px" src={props.image} alt={props.name}></img>
+          <span className="cart-product-detail">
+            <h3>{props.name}</h3>
+            <p dangerouslySetInnerHTML={{__html: product.description}}/>
+            <p>{props.price}</p>
+            <p>{product.is.sold_out ? "Out of Stock" : "In Stock"}</p>
+            <span className="cart-edit">
               <div>
                 <Button>-</Button>
                 &nbsp;
@@ -26,16 +36,14 @@ function ProductInCart(props) {
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Button type="primary" danger>
-      <strong>Remove</strong>
-    </Button>
-              </span>
+                <strong>Remove</strong>
+              </Button>
             </span>
-          </div>
-        </Card>
+          </span>
+        </div>
+      </Card>
       <br />
-    
     </div>
-
   );
 }
 
