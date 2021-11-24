@@ -4,12 +4,12 @@ import axios from "axios";
 
 function Products({ products, onAddCart }) {
    console.log("onAddcart is: ", onAddCart)
+   console.log("product is: ", products)
   return (
     <div className="Products" >
       <h1>My Products</h1>
-
       {products.map((product) => {
-       
+        
         return (
           <div>
             <Product

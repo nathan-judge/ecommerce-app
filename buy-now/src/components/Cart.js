@@ -36,23 +36,7 @@ function Cart() {
     <div className="cart">
       <h1>My Cart</h1>
 
-      {/* {lineItems.map((product) => {
-        return (
-          <div>
-            <ProductInCart
-              key={product.product_id}
-              cart_id={cart.id}
-              name={product.name}
-              product_id={product.product_id}
-              image={product.image.url}
-              cart_quantity={product.quantity}
-              price={product.price.formatted_with_symbol}
-            />
-          </div>
-        );
-      })} */}
-
-      <h3>Subtotal({cart.total_items} items) :total{cart.subtotal.formatted_with_symbol}</h3>
+      <h3>Subtotal: {cart.subtotal.formatted_with_symbol} ({cart.total_items} items)</h3>
       {loading ? (
         <div>
           <Card>
@@ -96,3 +80,21 @@ function Cart() {
 }
 
 export default Cart;
+
+
+
+      {/* {lineItems.map((product) => {
+        return (
+          <div>
+            <ProductInCart
+              key={product.product_id}
+              cart_id={cart.id}
+              name={product.name}
+              product_id={product.product_id}
+              image={product.image.url}
+              cart_quantity={product.quantity}
+              price={product.price.formatted_with_symbol}
+            />
+          </div>
+        );
+      })} */}

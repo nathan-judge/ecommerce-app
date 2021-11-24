@@ -6,6 +6,7 @@ import Products from "./Products";
 
 
 function Home(props) {
+console.log('props :', props);
   console.log("home on add cart is: ", props.handleAddToCart)
  
    return (
