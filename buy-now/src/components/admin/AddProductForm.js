@@ -1,7 +1,12 @@
 function AddProductForm() {
     return (
       <div className="AddProductForm">
-       <h1>this is AddProductForm</h1>
+       <form className="AdminForm">
+<input className="titleForm"></input>
+<input className="imgForm"></input>
+<input className="priceForm"></input>
+<input className="desForm"></input>
+       </form>
       </div>
     );
   }

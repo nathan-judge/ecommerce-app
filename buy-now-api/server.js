@@ -9,8 +9,6 @@ const port = 3545
 //bodyParser middleware
 
 
-
-
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({

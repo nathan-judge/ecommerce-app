@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 .cart {
   margin-top: 80px;
   padding: 1.2em 8em;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .cart-item {
@@ -18,3 +20,38 @@
     align-items: center;
   }
 }
+.cart-card{
+background-color: rgba(255, 255, 255, 0.1);
+display: flex;
+justify-content: center;
+width: 50%;
+margin: 1em;
+padding: 1em;
+}
+.cart-card-container{
+  display: flex;
+  justify-content: center;
+}
+
+.SubtotalContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.CheckoutBtn{
+   font-size: 15px;
+  background-color: white;
+  color: black;
+  border: 2px solid brown;
+ 
+}
+
+
+.SubtotalCart{
+  font-size: 25px;
+  margin-top: 10px;
+  padding-right: 1em;
+}
+
+

@@ -6,6 +6,9 @@ import {useTheme} from './theme/useTheme';
 import ThemeSelector from './components/admin/ThemeSelector';
 import Navbar from './components/Navbar';
 import ProductsList from './components/ProductsList';
+import ProductDetails from './components/ProductDetails';
+import Cart from './components/Cart';
+import AddProductForm from './components/admin/AddProductForm';
 
 
 
@@ -39,13 +42,14 @@ function App() {
       themeLoaded && <ThemeProvider theme={ selectedTheme }>
         <GlobalStyles/>
         <Container style={{fontFamily: selectedTheme.font}}>
-       
-        <h1>Products</h1>
-       
+              
         <Navbar/>
         
         <ThemeSelector setter={ setSelectedTheme } />
         <ProductsList/>
+        {/* <ProductDetails/> */}
+        {/* <Cart/> */}
+        {/* <AddProductForm/> */}
         </Container>
       </ThemeProvider>
     }

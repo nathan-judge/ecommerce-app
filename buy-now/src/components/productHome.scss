@@ -1,0 +1,31 @@
+.ProductsUl{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;  
+}
+
+.ProductImg{
+    width: 20em;
+}
+.ProductListItem{
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: #92a8d1;
+    padding: 1em;
+}
+
+
+.ProductName{
+    font-size: 22px
+}
+.ProductPrice{
+    font-size: 16px
+}
+.AddCartBtn{
+    font-size: 15px;
+    color: white;
+    width: 100%;
+    background-color: #17356fe0;
+    border: 1px solid white;
+}

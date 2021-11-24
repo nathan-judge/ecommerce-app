@@ -34,7 +34,12 @@ const carts = [
 function Cart() {
   return (
     <div className="cart">
-      <h1>My Cart</h1>
+    <div className="SubtotalContainer">
+<span className="SubtotalCart">
+Subtotal: $360
+</span>
+<button className="CheckoutBtn">Checkout</button>
+    </div>
 
       {carts.map((product) => {
         return (
@@ -52,7 +57,7 @@ function Cart() {
         );
       })}
 
-      <h3>Subtotal(2 items):total $$</h3>
+  
     </div>
   );
 }

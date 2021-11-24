@@ -1,0 +1,52 @@
+.ProductDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.DetailsImg{
+    width: 40%;
+  padding-left: 5em;
+  padding-right: 5em;
+  justify-content: flex-start;
+}
+
+.ProductInfo{
+display: flex;
+flex-direction: column;
+width: 40%;
+}
+
+.AddCartContainer{
+    display: flex;
+    flex-direction: row;
+    padding-top:1em;
+}
+.AddQuantityDetailsInput{
+    width: 2em;
+    font-size: medium;
+    margin-top: 8px;
+    margin-right:6px ;
+    height: 45px;
+    border-color:inherit;
+}
+.DetailsAddCart{
+   
+        background-color: white;
+        color: black;
+        border: 2px solid brown;
+        width: 99%;
+}
+.DetailsAddCart:hover {background-color: #e7e7e7; color: blue;}
+
+.DetailsProductName{
+    font-size: 50px;
+   padding-bottom: 0.5em;
+}
+
+.DeatailsPara{
+    font-size: 20px;
+}
+
+.DetailsPrice{
+    font-size: 30px;
+}

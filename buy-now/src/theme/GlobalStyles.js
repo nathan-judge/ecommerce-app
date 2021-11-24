@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
       position: fixed;
         top: 0;
         left: 0;
-        z-index: 9999;
+        z-index: 1000;
         width: 100%;
         height: 120px;
         background: ${({ theme }) => theme.colors.navbar};
@@ -46,7 +46,28 @@ export const GlobalStyles = createGlobalStyle`
     color: #FFFFFF;
     font-family: ${({ theme }) => theme.font};
   }
+.cart-product-detail{
+    color: ${({ theme }) => theme.colors.navTitle};
+}
+.CheckoutBtn{
+   background-color: ${({ theme }) => theme.colors.checkoutback};
+   color: ${({ theme }) => theme.colors.checkout};
+   border: 1px solid ${({ theme }) => theme.colors.checkout};
+ }
 
+ .ProductListItem{
+    background-image: ${({ theme }) => theme.colors.productback};
+    background-color: ${({ theme }) => theme.colors.navbar};
+
+ }
+.ProductListItem {
+    background-color: ${({ theme }) => theme.colors.backitem};
+    border-color:${({ theme }) => theme.colors.backitemborder};
+    
+}
+.AddCartBtn{
+    background-color: ${({ theme }) => theme.colors.backitemborder};
+}
   button.btn {
     background-color: ${({ theme }) => theme.colors.button.background};
     color: ${({ theme }) => theme.colors.button.text};

@@ -10,9 +10,10 @@ const ThemedButton = styled.button`
     padding: 12px 24px;
     font-size: 15px;
     border-radius: 4px;
-    margin-top: 5px;
+    margin-top: 50px;
     width: 100%;
     cursor: pointer;
+    z-index: 5000
 `;
 
 
@@ -20,7 +21,7 @@ const ThemedButton = styled.button`
 const Container = styled.ul`
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin-top: 3rem;
     padding: 10px;
 `;
