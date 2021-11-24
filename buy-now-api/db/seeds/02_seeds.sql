@@ -1,7 +1,8 @@
-INSERT INTO carts (product_id, number_of_items)
-VALUES (1, 1),
-(2, 1),
-(3, 1);
+INSERT INTO carts (id, product_id, number_of_items)
+VALUES (1, 1, 1),
+(1, 2, 3),
+(2, 3, 5),
+(2, 1, 10);
 
 INSERT INTO order_status (id, status_description)
 VALUES (1, 'Order Created'),
