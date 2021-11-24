@@ -3,12 +3,18 @@ import ProductListItem from "./ProductListItem";
 import axios from 'axios'
 
 export default function ProductList (props) {
-  
+
 
   const listProduct = props.products.map((product) => {
     return (
 
-      <ProductListItem id={product.id} name={product.name} price={product.price}  />
+      <ProductListItem id={product.id}
+                       name={product.name} 
+                       price={product.price}  
+                       quantity={product.quantity}
+                       image={product.thumbnail_photo_url}
+                       description={product.description}
+                       category={product.category} />
     );
   });
    
@@ -20,4 +26,4 @@ export default function ProductList (props) {
     </main>
   );
 }
-  
+
