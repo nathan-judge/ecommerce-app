@@ -3,6 +3,9 @@ import helpers from "../helpers/cartSubtotal";
 import "./cart.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Button } from 'antd';
+import { Link } from "react-router-dom";
+
 // const carts = [
 //   {
 //     product_id: 1,
@@ -65,7 +68,7 @@ function Cart() {
 
       {cart.map((product, key) => {
         return (
-          <div>
+         
             <ProductInCart
               key={key}
               name={product.name}
@@ -77,13 +80,16 @@ function Cart() {
               price={product.price}
               fetchCart={fetchCart}
             />
-          </div>
+          
         );
       })}
 
-      <h3 className="cart-total">
-        Subtotal({itemsCount} items):${subtotal}
-      </h3>
+      <div className="cart-total">
+        <h3>Subtotal({itemsCount} items):${subtotal}</h3>
+        <br />
+        <Link to="/checkout" > <Button type="primary">Proceed to Checkout</Button></Link>
+      </div>
+      
     </div>
   );
 }

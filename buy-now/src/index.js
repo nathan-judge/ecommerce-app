@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
-
+import Checkout from "./components/Checkout";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -14,6 +14,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
