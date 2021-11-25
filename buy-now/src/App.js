@@ -6,7 +6,7 @@ import WebFont from 'webfontloader';
 import { GlobalStyles } from './theme/GlobalStyles';
 import {useTheme} from './theme/useTheme';
 import axios from 'axios'
-import ThemeSelector from './ThemeSelector';
+import ThemeSelector from './components/admin/ThemeSelector';
 
 const Container = styled.div`
   margin: 5px auto 5px auto;

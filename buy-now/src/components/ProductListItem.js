@@ -1,19 +1,19 @@
 import { Card, Col, Row, Menu, Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-
+import "./ProductList.scss";
 
 function Product(props) {
 console.log('props in product:', props);
  
   return (
-    <div >
+    <div className="ProductListItem">
 
-        <Card className="cart-card" style={{ width: '100%' }}>
+       
           <div className="cart-item">
-            <img height="200px" src={props.image ? props.image : ""} alt={props.name}></img>
-            <span className="cart-product-detail">
+            <img src={props.image ? props.image : ""} alt={props.name} className="ProductImg"></img>
+            
               <h3>{props.name}</h3>
-              <p dangerouslySetInnerHTML={{__html: props.description}}/>
+              {/* <p dangerouslySetInnerHTML={{__html: props.description}}/> */}
               
               <span>{props.isSoldOut? "Out of Stock" : "In Stock"}</span>
               <span className="cart-edit">
@@ -22,16 +22,16 @@ console.log('props in product:', props);
               </div>
               <div>
                 <Link to={'/details'} productDetailID={props}>
-                  <Button onClick={() => console.log("props.id is: ", props.id)}>Details</Button>
+                  <Button onClick={() => console.log("props.id is: ", props.id)} className="AddCartBtn">Details</Button>
                 </Link>
                
                 
               </div>
           
-              </span>
+              
             </span>
           </div>
-        </Card>
+       
       <br />
     
     </div>

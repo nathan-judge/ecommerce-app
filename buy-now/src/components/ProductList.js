@@ -1,6 +1,7 @@
 import React from "react";
 import ProductListItem from "./ProductListItem";
 import axios from 'axios'
+import "./ProductList.scss";
 
 export default function ProductList (props) {
 
@@ -19,11 +20,13 @@ export default function ProductList (props) {
   });
    
   return (
-    <main>
+    <ul className="ProductsUl">
 
-      {listProduct}
+     
+     {listProduct}
+    
 
-    </main>
+    </ul>
   );
 }
 
