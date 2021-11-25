@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
 import Checkout from "./components/Checkout";
+import Confirmation from "./components/Confirmation";
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -15,6 +17,7 @@ ReactDOM.render(
         <Route path="/" element={<App />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/confirm/:orderId" element={<Confirmation/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

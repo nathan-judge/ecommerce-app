@@ -6,7 +6,33 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3545
 
-//bodyParser middleware
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
+
+app.use(express.static("public"));
+app.use(express.json());
+
+const calculateOrderAmount = (items) => {
+  // Replace this constant with a calculation of the order's amount
+  // Calculate the order total on the server to prevent
+  // people from directly manipulating the amount on the client
+  return 1400;
+};
+
+app.post("/create-payment-intent", async (req, res) => {
+  const { items } = req.body;
+
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 1000,
+    currency: 'usd',
+    payment_method_types: ['card'],
+    receipt_email: 'jenny.rosen@example.com',
+  });
+
+  res.send({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
 
 
 
@@ -44,6 +70,9 @@ console.log("hellouser")
 
 const cartRoutes = require("./routes/cart");
 app.use("/api/cart", cartRoutes(db));
+
+const orderRoutes = require("./routes/order");
+app.use("/api/order", orderRoutes(db));
 
 
 
