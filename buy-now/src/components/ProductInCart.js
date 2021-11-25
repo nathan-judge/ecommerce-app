@@ -1,41 +1,58 @@
 //import 'antd/dist/antd.css';
-import { Card, Col, Row, Menu, Button } from "antd";
-
-
+import { Card, Button } from "antd";
+import axios from "axios";
+import { useState } from "react";
 
 function ProductInCart(props) {
-  //const {props} = image, name, quantity, price
-  return (
-    <div >
+  const [cartQuantity, setCartQuantity] = useState(props.cart_quantity);
+  const [productQuantity] = useState(props.product_quantity);
 
-        <Card className="cart-card" style={{ width: '100%' }}>
-          <div className="cart-item">
-            <img width="100" src={props.image} alt={props.name}></img>
-            <span className="cart-product-detail">
-              <h3>{props.name}</h3>
-              <p>{props.description}</p>
-              <p>${props.price}</p>
-              <p>In Stock</p>
-              <span className="cart-edit">
+  const changeQuantity = async (newQuantity) => {
+    try {
+      const cartId = localStorage.getItem("cart_id");
+      await axios.post("/api/cart/" + cartId, {
+        cart_id: cartId,
+        product_id: props.product_id,
+        number_of_items: newQuantity
+      });
+      setCartQuantity(newQuantity);
+      props.fetchCart();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  return (
+    <div>
+      <Card className="cart-card" style={{ width: "100%" }}>
+        <div className="cart-item">
+          <img height="100px" src={props.image} alt={props.name}></img>
+          <span className="cart-product-detail">
+            <h3>{props.name}</h3>
+            <p>{props.description}</p>
+            <p>${props.price}</p>
+            <p>{productQuantity < 1 ? "Out of Stock" : "In Stock"}</p>
+            <span className="cart-edit">
               <div>
-                <Button>-</Button>
+                <Button onClick={() => changeQuantity(cartQuantity - 1)}>
+                  -
+                </Button>
                 &nbsp;
                 <div>{props.cart_quantity}</div>
                 &nbsp;
-                <Button>+</Button>
+                <Button onClick={() => changeQuantity(cartQuantity + 1)}>
+                  +
+                </Button>
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button type="primary" danger>
-      <strong>Remove</strong>
-    </Button>
-              </span>
+              <Button type="primary" danger onClick={() => changeQuantity(0)}>
+                <strong>Remove</strong>
+              </Button>
             </span>
-          </div>
-        </Card>
+          </span>
+        </div>
+      </Card>
       <br />
-    
     </div>
-
   );
 }
 

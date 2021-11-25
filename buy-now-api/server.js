@@ -40,6 +40,9 @@ const userRoutes = require("./routes/user");
 app.use("/api/users", userRoutes(db));
 console.log("hellouser")
 
+const cartRoutes = require("./routes/cart");
+app.use("/api/cart", cartRoutes(db));
+
 
 
 
