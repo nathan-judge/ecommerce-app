@@ -8,6 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
+import AdminDashboard from './components/admin/AdminDashboard';
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -31,6 +32,8 @@ useEffect(() => {
     <Routes>
       <Route path="/" element={<ProductList products={products}/>} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/cart/:id" element={<Cart id/>} />
+      <Route path="/admin" element={<AdminDashboard />} />
     </Routes>
   </BrowserRouter>
 

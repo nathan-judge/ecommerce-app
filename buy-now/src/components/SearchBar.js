@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Badge } from "antd";
 
 function Searchbar() {
-  console.log("local storage.cartItems is: ", localStorage.cartItems.length)
+  console.log('localStorage.length in searchbar :', localStorage.length);
   return (
     <div className="forms">
       <form className="search" action="/" method="get">
@@ -21,6 +21,7 @@ function Searchbar() {
 
       <Link to={`/cart`}>
         <Badge offset={[-10, 12]} count={localStorage.length}>
+        
         
           <ShoppingCartOutlined  size="large" className="ant-icon" />
         </Badge>
