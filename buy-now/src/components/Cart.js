@@ -38,31 +38,7 @@ import EmptyCart from "./EmptyCart";
 //   }
 // ];
 
-function Cart() {
-  const [cart, setCart] = useState([]);
-  const [itemsCount, setItemsCount] = useState(0);
-  const [subtotal, setSubtotal] = useState(0);
-  const fetchCart = async () => {
-    try {
-      const cartId = localStorage.getItem("cart_id");
-      const url = "/api/cart/" + cartId;
-      const res = await axios.get(url);
-            
-      console.log("pppp", res.data);
-      let newCart = res.data.cart;
-      setCart(newCart);
-      const cartCountAndTotal = helpers.cartSubtotal(newCart);
-      setItemsCount(cartCountAndTotal.count);
-      setSubtotal(cartCountAndTotal.amount);
-    } catch (e) {
-      console.log("Error fetching new cart", e);
-    }
-  };
-
-  useEffect(() => {
-    console.log("SDF")
-    fetchCart();
-  }, []);
+function Cart(props) {
 
   const openNotificationWithIcon = (type) => {
     notification[type]({
@@ -76,10 +52,10 @@ function Cart() {
     console.log("==================");
     console.log(token, address);
     try {
-      await axios.post("/api/checkout", { token, cart, subtotal });
+      await axios.post("/api/checkout", { token, cart: props.cart, subtotal: props.subtotal });
       openNotificationWithIcon("success");
       localStorage.removeItem("cart_id");
-      setCart([]);
+      props.setCart([]);
     } catch (e) {
       console.log(e);
     }
@@ -88,10 +64,10 @@ function Cart() {
   return (
     <div className="cart">
       <h1>My Cart</h1>
-      {cart.length <= 0 && <EmptyCart />}
-      {cart.length > 0 && (
+      {props.cart.length <= 0 && <EmptyCart />}
+      {props.cart.length > 0 && (
         <div>
-          {cart.map((product, key) => {
+          {props.cart.map((product, key) => {
             return (
               <ProductInCart
                 key={key}
@@ -102,25 +78,23 @@ function Cart() {
                 cart_quantity={product.number_of_items}
                 product_quantity={product.product_quantity}
                 price={product.price}
-                fetchCart={fetchCart}
+                fetchCart={props.fetchCart}
               />
             );
           })}
 
           <div className="cart-total">
             <h3>
-              Subtotal({itemsCount} items):${subtotal}
+              Subtotal({props.itemsCount} items):${props.subtotal}
             </h3>
             <br />
-            {cart.length > 0 && (
               <StripeCheckout
                 stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                 token={handleToken}
                 shippingAddress
                 billingAddress
-                amount={subtotal * 100}
+                amount={props.subtotal * 100}
               />
-            )}
           </div>
         </div>
       )}

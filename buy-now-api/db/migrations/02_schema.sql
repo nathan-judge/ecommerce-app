@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS order_status CASCADE;
 DROP TABLE IF EXISTS themes CASCADE;
 
 CREATE TABLE carts (
-  id INTEGER NOT NULL,
+  id VARCHAR(255) NOT NULL,
   product_id INTEGER REFERENCES products(id),
   number_of_items INTEGER NOT NULL DEFAULT 0
 );

@@ -11,7 +11,7 @@ function Navbar(props) {
       <Link to="/">
         <h1>BuyNow!</h1>
       </Link>
-      <Searchbar cart={props.cart}/>
+      <Searchbar cartTotal={props.cartTotal}/>
     </div>
   );
 }
