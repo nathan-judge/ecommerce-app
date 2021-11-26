@@ -1,15 +1,30 @@
 .cart {
-  margin-top: 80px;
-  padding: 1.2em 8em;
+  padding: 0 8em;
+
+  & h1 {
+    color: rgb(10, 10, 141);
+  }
+  & h3 {
+    color: rgb(10, 10, 141);
+    font-weight: bolder;
+  }
 }
 
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+.checkout-button {
+  text-align: right;
+}
 .cart-item {
   display: flex;
   .cart-product-detail {
     margin-left: 50px;
   }
 }
-
 
 .cart-edit {
   display: flex;
