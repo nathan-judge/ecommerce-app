@@ -1,7 +1,12 @@
 import React from "react";
 import ProductListItem from "./ProductListItem";
+import { Widget } from "react-chat-widget"
+import "react-chat-widget/lib/styles.css";
 
 export default function ProductList(props) {
+  const handleNewUserMessage = (newMessage) => {
+    console.log(`New message incoming! ${newMessage}`)
+  }
   const listProduct = props.products.map((product, key) => {
     return (
       <ProductListItem
@@ -22,6 +27,7 @@ export default function ProductList(props) {
     <main>
       <h1>Products</h1>
       {listProduct}
+      <Widget handleNewUserMessage={handleNewUserMessage}/>
     </main>
   );
 }
