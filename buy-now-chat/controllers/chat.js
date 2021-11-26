@@ -6,11 +6,18 @@ export default (http) => {
   });
   //on connection
   io.on("connection", (socket) => {
-    // console.log("socket.id is: ", socket.id);
-    socket.on("send-message", (message) => {
+    console.log(`Guest connected: ${socket.id}`);
+
+    socket.on("disconnect", () => {
+      console.log("User has disconnected", socket.id)
       
-    
+    });
+
+    socket.on("send-message", (message) => {
       socket.broadcast.emit("receive-message", message);
     });
+    
+
+    
   });
 };
