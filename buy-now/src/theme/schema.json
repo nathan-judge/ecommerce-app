@@ -1,0 +1,115 @@
+
+   
+{
+    "data" : {
+      "light" : {
+        "id": "T_001",
+        "name": "Default",
+        "colors": {
+          "body": "#FFFFFF",
+          "text": "#000000",
+          "button": {
+            "text": "#FFFFFF",
+            "background": "#000000"
+          },
+          "link": {
+            "text": "teal",
+            "opacity": 1
+          }
+        },
+        "font": "Tinos"
+      },
+      "Lux" : {
+        "id": "T_002",
+        "name": "Lux",
+        "colors": {
+          "body": "url('https://wallpapercave.com/wp/uSr9bZA.jpg')",
+          "text": "white",
+          "navbar": "#404042",
+          "navTitle":"white",
+          "searchBtn":"#404042",
+          "backitem":"#40404280",
+          "backitemborder":"#00000052",
+          "itembtn":"#0000005e",
+          "checkout":"white",
+          "checkoutback":"rgba(255, 255, 255, 0.1);,",
+          "button": {
+            "text": "#ffffff",
+            "background": "#0d47a1"
+          },
+          "link": {
+            "text": "#0d47a1",
+            "opacity": 0.8
+          }
+        },
+        "font":"'Roboto', sans-serif"
+      },
+      "Christmas" : {
+        "id": "T_003",
+        "name": "Christmas",
+        "colors": {
+          "body": "url('https://livestartpage.com/gallery/themes/c1e217cdc8846e4cf68861d2e3f6c915/poster.png')",
+          "text": "white",
+          "navbar": "#17356f8c",
+          "navTitle":"white",
+          "searchBtn":"#404042",
+          "checkout":"white",
+          "productback": "url('https://cdn3.vectorstock.com/i/1000x1000/41/97/blue-xmas-background-vector-984197.jpg')",
+          "checkoutback":"rgba(255, 255, 255, 0.1);,",
+          "button": {
+            "text": "#ffffff",
+            "background": "#0d47a1"
+          },
+          "link": {
+            "text": "#0d47a1",
+            "opacity": 0.8
+          }
+        },
+        "font":"'Roboto', sans-serif"
+      },
+      "Halloween" : {
+        "id": "T_004",
+        "name": "Halloween",
+        "colors": {
+          "body": "url('https://cdn.pixabay.com/photo/2020/09/23/19/58/halloween-5596921__340.jpg')",
+          "text": "white",
+          "navbar": "#0000008a",
+          "navTitle":"white",
+          "searchBtn":"#404042",
+          "checkout":"white",
+          "checkoutback":"rgba(255, 255, 255, 0.1);,",
+          "button": {
+            "text": "#ffffff",
+            "background": "#0d47a1"
+          },
+          "link": {
+            "text": "#0d47a1",
+            "opacity": 0.8
+          }
+        },
+        "font":"'Roboto', sans-serif"
+      },
+      "Canada" : {
+        "id": "T_005",
+        "name": "Canada",
+        "colors": {
+          "body": "url('https://media.istockphoto.com/vectors/canadian-maple-leaf-symbol-seamless-pattern-illustration-vector-id947975882?k=20&m=947975882&s=612x612&w=0&h=YcP-3-aDpeSEjXJRhhuKzjf1Trj53mqG3jqTw8z7S5Q=')",
+          "text": "white",
+          "navbar": "#e40613a6",
+          "navTitle":"white",
+          "searchBtn":"#404042",
+          "checkout":"white",
+          "checkoutback":"rgba(255, 255, 255, 0.1);,",
+          "button": {
+            "text": "#ffffff",
+            "background": "#0d47a1"
+          },
+          "link": {
+            "text": "#0d47a1",
+            "opacity": 0.8
+          }
+        },
+        "font":"'Roboto', sans-serif"
+      }
+    }
+  }

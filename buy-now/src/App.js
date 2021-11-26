@@ -9,12 +9,34 @@ import Navbar from "./components/Navbar";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import ProductDetails from "./components/ProductDetails";
 import helpers from "./helpers/cartSubtotal";
-
+import styled, { ThemeProvider } from "styled-components";
+import WebFont from 'webfontloader';
+import { GlobalStyles } from './theme/GlobalStyles';
+import {useTheme} from './theme/useTheme';
+import ThemeSelector from "./components/admin/ThemeSelector";
+const Container = styled.div`
+  margin: 5px auto 5px auto;
+`;
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [itemsCount, setItemsCount] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
+  const {theme, themeLoaded, getFonts} = useTheme();
+  const [selectedTheme, setSelectedTheme] = useState(theme);
+
+  useEffect(() => {
+    setSelectedTheme(theme);
+   }, [themeLoaded]);
+
+  // 4: Load all the fonts
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: getFonts()
+      }
+    });
+  });
 
   const added = (productId) => {
     for (const product of cart) {
@@ -86,8 +108,15 @@ function App() {
     fetchCart();
   }, []);
 
-  return (
-    <BrowserRouter>
+
+return (
+  <>
+  {
+    themeLoaded && <ThemeProvider theme={ selectedTheme }>
+      <GlobalStyles/>
+      <Container style={{fontFamily: selectedTheme.font}}>
+      <ThemeSelector setter={ setSelectedTheme } />
+      <BrowserRouter>
       <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
       <Routes>
         <Route
@@ -123,7 +152,13 @@ function App() {
         />
       </Routes>
     </BrowserRouter>
-  );
+      </Container>
+    </ThemeProvider>
+
+    
+  }
+  </>
+);
 }
 
 export default App;
