@@ -42,13 +42,12 @@ function Cart() {
   const [cart, setCart] = useState([]);
   const [itemsCount, setItemsCount] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
-
   const fetchCart = async () => {
     try {
       const cartId = localStorage.getItem("cart_id");
       const url = "/api/cart/" + cartId;
       const res = await axios.get(url);
-
+            
       console.log("pppp", res.data);
       let newCart = res.data.cart;
       setCart(newCart);
@@ -61,6 +60,7 @@ function Cart() {
   };
 
   useEffect(() => {
+    console.log("SDF")
     fetchCart();
   }, []);
 

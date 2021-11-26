@@ -9,14 +9,7 @@ import Navbar from "./components/Navbar";
 import Checkout from "./components/Checkout";
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-      </Routes>
-    </BrowserRouter>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

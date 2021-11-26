@@ -9,8 +9,6 @@ const port = 3545
 //bodyParser middleware
 
 
-
-
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -47,6 +45,8 @@ app.use("/api/cart", cartRoutes(db));
 
 const checkoutRoutes = require("./routes/checkout")
 app.use("/api/checkout", checkoutRoutes(db))
+
+
 
 
 app.get('/', (req, res) => {
