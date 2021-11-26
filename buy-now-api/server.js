@@ -32,9 +32,12 @@ app.get("/test", (req, res) => {
 })
 
 //Mount all the routes
-const productRoutes = require("./routes/product");
-app.use("/api/products", productRoutes(db));
+const productsRoutes = require("./routes/products");
+app.use("/api/products", productsRoutes(db));
 console.log("hello1")
+
+const productRoutes = require("./routes/product_details");
+app.use("/api/product", productRoutes(db));
 
 const userRoutes = require("./routes/user");
 app.use("/api/users", userRoutes(db));

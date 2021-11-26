@@ -13,7 +13,7 @@ module.exports = (db) => {
        WHERE carts.id = $1 order by products.name;`,
         [req.params.cartId]
       );
-      console.log("Hello carts");
+      
       res.status(200).send({ cart: data.rows });
     } catch (err) {
       res.status(400).send({ error: err.message });
@@ -39,7 +39,7 @@ module.exports = (db) => {
         } else {
           //cart exists
           const data = await db.query(
-            `SELECT * FROM carts WHERE id=$1 AND product_id=$2;`,
+            `SELECT * FROM carts WHERE id= $1 AND product_id=$2;`,
             [req.body.cart_id, req.body.product_id]
           );
           if (data.rows.length === 0) {

@@ -42,7 +42,12 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
         >
           <Input />
         </Form.Item>
-        <Form.Item name="description" label="Description">
+        <Form.Item name="description" label="Description" rules={[
+            {
+              required: true,
+              message: "Please input the description !",
+            },
+          ]}>
           <Input type="textarea" />
         </Form.Item>
         <Form.Item name="price" label="Price" rules={[
@@ -53,13 +58,29 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
           ]}>
           <Input type="textarea" />
         </Form.Item>
-        <Form.Item name="quantity" label="Quantity">
+        <Form.Item name="quantity" label="Quantity" rules={[
+            {
+              type: 'number',
+              required: true,
+              message: "Please input the quantity!",
+            },
+          ]}>
           <Input type="textarea" />
         </Form.Item>
-        <Form.Item name="image" label="Image (url)">
+        <Form.Item name="image" label="Image (url)" rules={[
+            {
+              required: true,
+              message: "Please upload an image!",
+            },
+          ]}>
           <Input type="textarea" />
         </Form.Item>
-        <Form.Item name="category" label="Category">
+        <Form.Item name="category" label="Category" rules={[
+            {
+              required: true,
+              message: "Please input the price!",
+            },
+          ]}>
           <Input type="textarea" />
         </Form.Item>
         <Form.Item name="modifier" className="collection-create-form_last-form-item">

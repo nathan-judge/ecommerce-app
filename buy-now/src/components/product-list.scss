@@ -1,0 +1,24 @@
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: auto;
+  align-content: start;
+
+}
+.product-detail {
+  text-align: center;
+}
+.price-tag {
+  border: 1px solid black;
+  background:aqua;
+  padding:0.5em;
+}
+.price-count {
+  display: flex;
+  justify-content: space-between;
+}
+.product-card{
+  margin: 20px !important;
+}
