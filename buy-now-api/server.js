@@ -45,7 +45,8 @@ console.log("hellouser")
 const cartRoutes = require("./routes/cart");
 app.use("/api/cart", cartRoutes(db));
 
-
+const checkoutRoutes = require("./routes/checkout")
+app.use("/api/checkout", checkoutRoutes(db))
 
 
 app.get('/', (req, res) => {

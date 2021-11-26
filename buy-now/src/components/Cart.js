@@ -3,8 +3,10 @@ import helpers from "../helpers/cartSubtotal";
 import "./cart.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Button } from 'antd';
+import { notification } from "antd";
 import { Link } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
+import EmptyCart from "./EmptyCart";
 
 // const carts = [
 //   {
@@ -62,34 +64,66 @@ function Cart() {
     fetchCart();
   }, []);
 
+  const openNotificationWithIcon = (type) => {
+    notification[type]({
+      message: "Success!",
+      description:
+        "Payment successful. You will receive an email with the order confirmation!"
+    });
+  };
+
+  const handleToken = async (token, address) => {
+    console.log("==================");
+    console.log(token, address);
+    try {
+      await axios.post("/api/checkout", { token, cart, subtotal });
+      openNotificationWithIcon("success");
+      localStorage.removeItem("cart_id");
+      setCart([]);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div className="cart">
       <h1>My Cart</h1>
+      {cart.length <= 0 && <EmptyCart />}
+      {cart.length > 0 && (
+        <div>
+          {cart.map((product, key) => {
+            return (
+              <ProductInCart
+                key={key}
+                name={product.name}
+                product_id={product.product_id}
+                image={product.thumbnail_photo_url}
+                description={product.description}
+                cart_quantity={product.number_of_items}
+                product_quantity={product.product_quantity}
+                price={product.price}
+                fetchCart={fetchCart}
+              />
+            );
+          })}
 
-      {cart.map((product, key) => {
-        return (
-         
-            <ProductInCart
-              key={key}
-              name={product.name}
-              product_id={product.product_id}
-              image={product.thumbnail_photo_url}
-              description={product.description}
-              cart_quantity={product.number_of_items}
-              product_quantity={product.product_quantity}
-              price={product.price}
-              fetchCart={fetchCart}
-            />
-          
-        );
-      })}
-
-      <div className="cart-total">
-        <h3>Subtotal({itemsCount} items):${subtotal}</h3>
-        <br />
-        <Link to="/checkout" > <Button type="primary">Proceed to Checkout</Button></Link>
-      </div>
-      
+          <div className="cart-total">
+            <h3>
+              Subtotal({itemsCount} items):${subtotal}
+            </h3>
+            <br />
+            {cart.length > 0 && (
+              <StripeCheckout
+                stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
+                token={handleToken}
+                shippingAddress
+                billingAddress
+                amount={subtotal * 100}
+              />
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
