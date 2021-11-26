@@ -11,21 +11,30 @@ import helpers from "./helpers/cartSubtotal"
 import { Widget, addResponseMessage } from "react-chat-widget"
 import "react-chat-widget/lib/styles.css";
 import {io} from 'socket.io-client'
+import ProductDetails from "./components/ProductDetails";
 const socket = io('http://localhost:8000');
 
-const App = () => {
+
+function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [itemsCount, setItemsCount] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
 
-  
+  const added = (productId) => {
+    for (const product of cart) {
+      if (product.product_id === productId) {
+        return "Added to Cart";
+      }
+    }
+    return "Add to Cart";
+  };
   const fetchCart = async () => {
     try {
       const cartId = localStorage.getItem("cart_id");
       const url = "/api/cart/" + cartId;
       const res = await axios.get(url);
-            
+
       console.log("pppp", res.data);
       let newCart = res.data.cart;
       setCart(newCart);
@@ -34,6 +43,46 @@ const App = () => {
       setSubtotal(cartCountAndTotal.amount);
     } catch (e) {
       console.log("Error fetching new cart", e);
+    }
+  };
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get("/api/products");
+      setProducts(response.data.products);
+    } catch (err) {
+      console.log("Error fetching products", err);
+    }
+  };
+  const addToCart = async (productId) => {
+    try {
+      const cartId = localStorage.getItem("cart_id");
+
+      console.log("cartId :", cartId);
+
+      const url = "/api/cart/" + cartId;
+      console.log("before aci", productId);
+      const res = await axios.post(url, {
+        product_id: productId,
+        cart_id: cartId
+      });
+      console.log("pppp", res.data);
+      if (!cartId) {
+        localStorage.setItem("cart_id", res.data.cart_id);
+      }
+      fetchCart();
+    } catch (e) {
+      console.log("Error adding to cart", e);
+    }
+  };
+
+  const searchProduct = async (value) => {
+    try {
+      const response = await axios.get("api/products/search?term=" + value);
+      let productToShow = response.data.products;
+      console.log("productstoshow", productToShow);
+      setProducts(productToShow);
+    } catch (e) {
+      console.log("Error searching the product", e);
     }
   };
 
@@ -66,56 +115,43 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Navbar cartTotal={cart.length} />
+      <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
       <Routes>
-        <Route path="/" element={<ProductList products={products} fetchCart={fetchCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} itemsCount={itemsCount} subtotal={subtotal} fetchCart={fetchCart} setCart={setCart} />} />
+        <Route
+          path="/"
+          element={
+            <ProductList
+              products={products}
+              fetchCart={fetchCart}
+              cart={cart}
+              added={added}
+              addToCart={addToCart}
+            />
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cart={cart}
+              itemsCount={itemsCount}
+              subtotal={subtotal}
+              fetchCart={fetchCart}
+              setCart={setCart}
+            />
+          }
+        />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route
+          path="/details/:id"
+          element={
+            <ProductDetails added={added} addToCart={addToCart} cart={cart} />
+          }
+        />
       </Routes>
       <Widget handleNewUserMessage={handleNewUserMessage}/>
     </BrowserRouter>
   );
-};
+}
 
 export default App;
-
-// import React, { useEffect, useState } from 'react'
-// import './App.css';
-// import ProductList from './components/ProductList';
-// import axios from 'axios'
-// import ReactDOM from "react-dom";
-// import "./index.css";
-// import reportWebVitals from "./reportWebVitals";
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import Cart from "./components/Cart";
-// import Navbar from "./components/Navbar";
-
-// const App = () => {
-//   const [products, setProducts] = useState([]);
-//   // const [cart, setCart] = useState([]);
-
-// useEffect(() => {
-//   const fetchProducts = async () => {
-//     try{
-//       const response = await axios.get('/api/products');
-//       setProducts(response.data.products);
-//       console.log('response.data :', response.data);
-//     } catch (err) {
-//     }
-//   }
-//   fetchProducts();
-// }, [])
-
-//   return (
-//   <BrowserRouter>
-//     <Navbar cart={cart} />
-//     <Routes>
-//       <Route path="/" element={<ProductList setCart={setCart} products={products}/>} />
-//       <Route path="/cart" element={<Cart />} />
-//     </Routes>
-//   </BrowserRouter>
-
-//   );
-// }
-
-// export default App;

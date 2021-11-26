@@ -1,23 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./search.scss";
 import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Badge } from "antd";
+// import axios from "axios";
 
 function Searchbar(props) {
+const [searchTerm, setSearchTerm] = useState("")
+const handleSearchChange = (event)=>{
+  setSearchTerm(event.target.value)
+  props.searchProduct(event.target.value)
+
+}
   return (
     <div className="forms">
-      <form className="search" action="/" method="get">
+      <div className="search" >
         <input
           className="search-text"
           type="text"
-          placeholder="Search"
+          placeholder="Search Products"
           name="item-to-find"
+          value={searchTerm}
+          onChange={handleSearchChange}
         ></input>
-        <button>
+        <button onClick={()=> props.searchProduct(searchTerm)} >
           <SearchOutlined className="search-icon" />
         </button>
-      </form>
+      </div>
 
       <Link to={`/cart`}>
         <Badge offset={[-10, 12]} count={props.cartTotal}>

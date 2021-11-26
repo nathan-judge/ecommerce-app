@@ -1,42 +1,13 @@
 import ProductInCart from "./ProductInCart";
-import helpers from "../helpers/cartSubtotal";
+
 import "./cart.scss";
-import { useState, useEffect } from "react";
+
 import axios from "axios";
 import { notification } from "antd";
-import { Link } from "react-router-dom";
+
 import StripeCheckout from "react-stripe-checkout";
 import EmptyCart from "./EmptyCart";
 
-// const carts = [
-//   {
-//     product_id: 1,
-//     name: "Shoes",
-//     description: "Red shoes for hiking",
-//     image: "https://m.media-amazon.com/images/I/61OckGLlZUL._AC_UL320_.jpg",
-//     product_quantity: 50,
-//     number_of_items: 12,
-//     price: 120
-//   },
-//   {
-//     product_id: 2,
-//     name: "Jacket",
-//     description: "Blue jacket for winter",
-//     image: "https://m.media-amazon.com/images/I/61OckGLlZUL._AC_UL320_.jpg",
-//     product_quantity: 25,
-//     number_of_items: 1,
-//     price: 1220
-//   },
-//   {
-//     product_id: 3,
-//     name: "Hats",
-//     description: "Cool hat for summer",
-//     image: "https://m.media-amazon.com/images/I/61OckGLlZUL._AC_UL320_.jpg",
-//     product_quantity: 150,
-//     number_of_items: 3,
-//     price: 20
-//   }
-// ];
 
 function Cart(props) {
 
@@ -49,7 +20,6 @@ function Cart(props) {
   };
 
   const handleToken = async (token, address) => {
-    console.log("==================");
     console.log(token, address);
     try {
       await axios.post("/api/checkout", { token, cart: props.cart, subtotal: props.subtotal });
