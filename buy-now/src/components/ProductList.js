@@ -20,13 +20,14 @@ export default function ProductList (props) {
   });
    
   return (
-    <ul className="ProductsUl">
+    <div className="ProductsUl">
+
 
      
      {listProduct}
     
 
-    </ul>
+    </div>
   );
 }
 

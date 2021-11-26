@@ -1,5 +1,6 @@
 import ProductInCart from "./ProductInCart";
 import "./cart.scss";
+import StripeCheckout from "react-stripe-checkout"
 const carts = [
   {
     product_id: 1,
@@ -53,6 +54,8 @@ function Cart() {
       })}
 
       <h3>Subtotal(2 items):total $$</h3>
+      <StripeCheckout
+      shippingAddress/>
     </div>
   );
 }

@@ -47,6 +47,7 @@ useEffect(() => {
       themeLoaded && <ThemeProvider theme={ selectedTheme }>
         <GlobalStyles/>
         <Container style={{fontFamily: selectedTheme.font}}>
+        
         <ThemeSelector setter={ setSelectedTheme } />
         <ProductList products={products} />
         </Container>

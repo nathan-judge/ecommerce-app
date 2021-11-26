@@ -6,35 +6,29 @@ function Product(props) {
 console.log('props in product:', props);
  
   return (
+   
     <div className="ProductListItem">
 
-       
-          <div className="cart-item">
             <img src={props.image ? props.image : ""} alt={props.name} className="ProductImg"></img>
-            
-              <h3>{props.name}</h3>
               {/* <p dangerouslySetInnerHTML={{__html: props.description}}/> */}
-              
-              <span>{props.isSoldOut? "Out of Stock" : "In Stock"}</span>
-              <span className="cart-edit">
-              <div>
-                <Button onClick={() => props.onAddCart(props.id, 1)}>Add to Cart</Button>
-              </div>
-              <div>
+              <div className="add-details">
+              {/* <span className="ProductName">{props.name}</span> */}
+         
+             
+              <span className="ProductPrice">$ {props.price}</span>
+              <span className="instock">{props.isSoldOut? "Out of Stock" : "In Stock"}</span>
+            <div className="AddDetailsCon">
+                <Button onClick={() => props.onAddCart(props.id, 1)}
+                className="addbtn">Add to Cart</Button>
+             
+            
                 <Link to={'/details'} productDetailID={props}>
                   <Button onClick={() => console.log("props.id is: ", props.id)} className="AddCartBtn">Details</Button>
                 </Link>
-               
-                
-              </div>
-          
-              
-            </span>
+                </div>
           </div>
-       
-      <br />
-    
     </div>
+  
   )
 }
 

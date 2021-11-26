@@ -49,10 +49,15 @@ export const GlobalStyles = createGlobalStyle`
 .cart-product-detail{
     color: ${({ theme }) => theme.colors.navTitle};
 }
-.CheckoutBtn{
+.AddCartBtn {
    background-color: ${({ theme }) => theme.colors.checkoutback};
    color: ${({ theme }) => theme.colors.checkout};
    border: 1px solid ${({ theme }) => theme.colors.checkout};
+ }
+ .addbtn{
+  background-color: ${({ theme }) => theme.colors.checkoutback};
+  color: ${({ theme }) => theme.colors.checkout};
+  border: 1px solid ${({ theme }) => theme.colors.checkout};
  }
  .ProductListItem{
     background-image: ${({ theme }) => theme.colors.productback};
@@ -63,8 +68,11 @@ export const GlobalStyles = createGlobalStyle`
     border-color:${({ theme }) => theme.colors.backitemborder};
     
 }
-.AddCartBtn{
+.ant-btn.addbtn{
     background-color: ${({ theme }) => theme.colors.backitemborder};
+}
+.ant-btn.AddCartBtn{
+  background-color: ${({ theme }) => theme.colors.backitemborder};
 }
   button.btn {
     background-color: ${({ theme }) => theme.colors.button.background};
