@@ -7,6 +7,9 @@ export const GlobalStyles = createGlobalStyle`
    
     transition: all 0.50s linear;
   }
+  .product-name{
+    color: ${({ theme }) => theme.colors.text};
+  }
   .nav-bar{
       display:flex;
       justify-content: space-between;
@@ -22,6 +25,7 @@ export const GlobalStyles = createGlobalStyle`
         height: 100px;
         display: flex;
         align-items: center;
+        color: black;
   }
   .nav-title {
 	color: ${({ theme }) => theme.colors.navTitle};
@@ -31,8 +35,14 @@ export const GlobalStyles = createGlobalStyle`
 .ant-icon{
     color: ${({ theme }) => theme.colors.navTitle};
 }
+a{
+  color: ${({ theme }) => theme.colors.text};
+}
 .search-icon-btn{
     background-color: ${({ theme }) => theme.colors.searchBtn};
+}
+.cart h1{
+  color: ${({ theme }) => theme.colors.navTitle};
 }
   button {
     border: 0;
@@ -54,19 +64,25 @@ export const GlobalStyles = createGlobalStyle`
    color: ${({ theme }) => theme.colors.checkout};
    border: 1px solid ${({ theme }) => theme.colors.checkout};
  }
- .addbtn{
+ .ant-btn{
   background-color: ${({ theme }) => theme.colors.checkoutback};
   color: ${({ theme }) => theme.colors.checkout};
   border: 1px solid ${({ theme }) => theme.colors.checkout};
+  font-family: 'Spartan', sans-serif;
  }
- .ProductListItem{
-    background-image: ${({ theme }) => theme.colors.productback};
+ .ant=btn:hover{
+   color:blue;
+ }
+ .product-card-contents{
     background-color: ${({ theme }) => theme.colors.navbar};
+    display: flex;
+    justify-content: center;
  }
-.ProductListItem {
-    background-color: ${({ theme }) => theme.colors.backitem};
-    border-color:${({ theme }) => theme.colors.backitemborder};
-    
+.cart-card{
+  background-color: ${({ theme }) => theme.colors.navbar};
+}
+.cart h3{
+  color: ${({ theme }) => theme.colors.text};
 }
 .ant-btn.addbtn{
     background-color: ${({ theme }) => theme.colors.backitemborder};
@@ -74,8 +90,11 @@ export const GlobalStyles = createGlobalStyle`
 .ant-btn.AddCartBtn{
   background-color: ${({ theme }) => theme.colors.backitemborder};
 }
+
   button.btn {
     background-color: ${({ theme }) => theme.colors.button.background};
     color: ${({ theme }) => theme.colors.button.text};
   }
+  
+  
 `;

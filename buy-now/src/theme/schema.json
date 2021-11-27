@@ -8,6 +8,9 @@
         "colors": {
           "body": "#FFFFFF",
           "text": "#000000",
+          "backitem":"#40404280",
+          "checkout":"black",
+          "checkoutback":"rgba(255, 255, 255, 0.1);,",
           "button": {
             "text": "#FFFFFF",
             "background": "#000000"
@@ -21,7 +24,7 @@
       },
       "Lux" : {
         "id": "T_002",
-        "name": "Lux",
+        "name": "Black",
         "colors": {
           "body": "url('https://wallpapercave.com/wp/uSr9bZA.jpg')",
           "text": "white",
@@ -42,7 +45,7 @@
             "opacity": 0.8
           }
         },
-        "font":"'Roboto', sans-serif"
+        "font":""
       },
       "Christmas" : {
         "id": "T_003",
@@ -54,6 +57,7 @@
           "navTitle":"white",
           "searchBtn":"#404042",
           "checkout":"white",
+          "backitem":"#40404280",
           "productback": "url('https://cdn3.vectorstock.com/i/1000x1000/41/97/blue-xmas-background-vector-984197.jpg')",
           "checkoutback":"rgba(255, 255, 255, 0.1);,",
           "button": {
@@ -77,6 +81,8 @@
           "navTitle":"white",
           "searchBtn":"#404042",
           "checkout":"white",
+          "backitem":"#40404280",
+        
           "checkoutback":"rgba(255, 255, 255, 0.1);,",
           "button": {
             "text": "#ffffff",
@@ -91,7 +97,7 @@
       },
       "Canada" : {
         "id": "T_005",
-        "name": "Canada",
+        "name": "Canada Day",
         "colors": {
           "body": "url('https://media.istockphoto.com/vectors/canadian-maple-leaf-symbol-seamless-pattern-illustration-vector-id947975882?k=20&m=947975882&s=612x612&w=0&h=YcP-3-aDpeSEjXJRhhuKzjf1Trj53mqG3jqTw8z7S5Q=')",
           "text": "white",
@@ -99,6 +105,7 @@
           "navTitle":"white",
           "searchBtn":"#404042",
           "checkout":"white",
+          "backitem":"#40404280",
           "checkoutback":"rgba(255, 255, 255, 0.1);,",
           "button": {
             "text": "#ffffff",
