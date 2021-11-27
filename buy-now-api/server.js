@@ -49,6 +49,9 @@ app.use("/api/cart", cartRoutes(db));
 const checkoutRoutes = require("./routes/checkout")
 app.use("/api/checkout", checkoutRoutes(db))
 
+const reviewsRoutes = require("./routes/reviews");
+app.use("/api/reviews", reviewsRoutes(db))
+
 
 
 
