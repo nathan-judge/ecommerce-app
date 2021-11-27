@@ -16,8 +16,6 @@ const ThemedButton = styled.button`
     z-index: 5000
 `;
 
-
-
 const Container = styled.ul`
     display: grid;
     gap: 1rem;
@@ -25,7 +23,6 @@ const Container = styled.ul`
     margin-top: 3rem;
     padding: 10px;
 `;
-
 
 
 export default (props) => {
