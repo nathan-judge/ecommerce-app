@@ -23,9 +23,7 @@ const handleSearchChange = (event)=>{
           value={searchTerm}
           onChange={handleSearchChange}
         ></input>
-        <button onClick={()=> props.searchProduct(searchTerm)} >
-          <SearchOutlined className="search-icon" />
-        </button>
+       
       </div>
 
       <Link to={`/cart`}>
