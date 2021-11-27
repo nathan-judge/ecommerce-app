@@ -120,7 +120,7 @@ return (
       <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
       <Routes>
         <Route
-          path="/"
+          path="/home"
           element={
             <ProductList
               products={products}
