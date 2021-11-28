@@ -1,138 +1,148 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form, Input, Radio } from 'antd';
+import axios from 'axios';
+const {TextArea} = Input
 //CREATE PRODUCT FORM
-const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
-  const [form] = Form.useForm();
-  return (
-    <Modal
-      visible={visible}
-      title="Create a new product"
-      okText="Create"
-      cancelText="Cancel"
-      onCancel={onCancel}
-      onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log('Validate Failed:', info);
-          });
-      }}
-    >
-      <Form
-        form={form}
-        layout="vertical"
-        name="form_in_modal"
-        initialValues={{
-          modifier: 'public',
-        }}
-      >
-        <Form.Item
-          name="title"
-          label="Name"
-          rules={[
-            {
-              required: true,
-              message: 'Please input the name of product!',
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item name="description" label="Description" rules={[
-            {
-              required: true,
-              message: "Please input the description !",
-            },
-          ]}>
-          <Input type="textarea" />
-        </Form.Item>
-        <Form.Item name="price" label="Price" rules={[
-            {
-              required: true,
-              message: "Please input the price!",
-            },
-          ]}>
-          <Input type="textarea" />
-        </Form.Item>
-        <Form.Item name="quantity" label="Quantity" rules={[
-            {
-              type: 'number',
-              required: true,
-              message: "Please input the quantity!",
-            },
-          ]}>
-          <Input type="textarea" />
-        </Form.Item>
-        <Form.Item name="image" label="Image (url)" rules={[
-            {
-              required: true,
-              message: "Please upload an image!",
-            },
-          ]}>
-          <Input type="textarea" />
-        </Form.Item>
-        <Form.Item name="category" label="Category" rules={[
-            {
-              required: true,
-              message: "Please input the price!",
-            },
-          ]}>
-          <Input type="textarea" />
-        </Form.Item>
-        <Form.Item name="modifier" className="collection-create-form_last-form-item">
-          <Radio.Group>
-            <Radio value="public">Allow product review</Radio>
-            <Radio value="private">Disable product review</Radio>
-          </Radio.Group>
-        </Form.Item>
-      </Form>
-    </Modal>
-  );
-};
-
-const CollectionsPage = () => {
-  const [visible, setVisible] = useState(false);
-
-  const onCreate = (values) => {
-    console.log('Received values of form: ', values);
-    setVisible(false);
+const addProductForm = () => {
+  const onFinish = async (values) => {
+    console.log("Success:", values.product.name);
+    try {
+      await axios.post("/api/admin/addProduct" ,{
+          
+      name: values.product.name,
+      price: values.product.price,
+      quantity: values.product.quantity,
+      image: values.product.thumbnail_photo_url,
+      description: values.product.description,
+      category: values.product.category
+      });
+     
+    } catch (e) {
+      console.log("Error submitting review", e);
+    }
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
-    <div>
-      <Button
-        type="primary"
-        onClick={() => {
-          setVisible(true);
-        }}
-      >
-        Create Product
-      </Button>
-      <CollectionCreateForm
-        visible={visible}
-        onCreate={onCreate}
-        onCancel={() => {
-          setVisible(false);
-        }}
-      />
-    </div>
+    
+  
+      <Form
+            onFinish={onFinish}
+            labelCol={{
+              span: 2
+            }}
+            onFinishFailed={onFinishFailed}
+          >
+            <Form.Item 
+              label="Name"
+              name={["product", "name"]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your name!"
+                }
+              ]}
+            >
+              <Input />
+    
+            </Form.Item>
+            <Form.Item 
+              label="Description"
+              name={["product", "description"]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your description!"
+                }
+              ]}
+            >
+             <TextArea showCount maxLength={300} />
+    
+            </Form.Item>
+            <Form.Item 
+              label="quantity"
+              name={["product", "quantity"]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input the price!"
+                }
+              ]}
+            >
+              <Input />
+    
+            </Form.Item>
+            <Form.Item 
+              label="Price"
+              name={["product", "price"]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input the price!"
+                }
+              ]}
+            >
+              <Input />
+    
+            </Form.Item>
+            <Form.Item 
+              label="Image"
+              name={["product", "thumbnail_photo_url"]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please post a picture of the product!"
+                }
+              ]}
+            >
+              <Input />
+    
+            </Form.Item>
+
+            <Form.Item 
+              label="Category"
+              name={["product", "category"]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please choose a category!" 
+                }
+              ]}
+            >
+              <Input />
+    
+            </Form.Item>
+
+
+            <Form.Item wrapperCol={{ offset: 2 }}>
+              <Button
+                htmlType="submit"
+                type="primary"
+                onClick={(e) => console.log("EEEE", e.target)}
+              >
+                Submit
+              </Button>{" "}
+              &nbsp;
+              <Button type="default" onClick={() => (false)}>
+                Cancel
+              </Button>
+            </Form.Item>
+      </Form>      
+    
   );
 };
-
-
+export default addProductForm
 
 function AdminDashboard() {
     return (
       <div className="AdminDashboard">
       <h1 style={{ paddingTop: 100 }}>ADMIN DASHBOARD</h1>
-      <CollectionsPage/>
+      
+    <addProductForm />
        
       </div>
     );
   }
   
-  export default AdminDashboard;

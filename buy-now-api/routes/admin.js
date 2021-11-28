@@ -2,13 +2,14 @@ const router = require('express').Router();
 
 module.exports = (db) => {
   
-  router.get("/add-product", async(req, res) => {
+  router.post("/addProduct", async(req, res) => {
+      console.log("testing", req.body)
     try {
       const data = await db.query(`INSERT INTO products (name, price, quantity, thumbnail_photo_url, description, category)
-      VALUES ('$1,$2,$3,$4,$5,$6'),`)
+      VALUES ($1,$2,$3,$4,$5,$6)`, [req.body.name, req.body.price, req.body.quantity, req.body.thumbnail_photo_url, req.body.description, req.body.category])
+
+      res.status(200).send({productAdded: true});
       
-        const products = data.rows;
-        res.status(200).send({ products });
       }
       catch(e) {
         res

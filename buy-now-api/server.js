@@ -50,7 +50,8 @@ const checkoutRoutes = require("./routes/checkout")
 app.use("/api/checkout", checkoutRoutes(db))
 
 
-
+const adminRoutes = require("./routes/admin")
+app.use("/api/admin", adminRoutes(db))
 
 app.get('/', (req, res) => {
   console.log("testget")
