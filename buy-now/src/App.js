@@ -142,13 +142,13 @@ return (
   {
     themeLoaded && <ThemeProvider theme={ selectedTheme }>
       <GlobalStyles/>
-      
-      <ThemeSelector setter={ setSelectedTheme } />
+     
+      <ThemeSelector setter={ setSelectedTheme }/>
       <BrowserRouter>
       <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
       <Routes>
         <Route
-          path="/"
+          path="/home"
           element={
             <ProductList
               products={products}
@@ -171,7 +171,7 @@ return (
             />
           }
         />
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin" element={<AdminDashboard products={products}/>} />
         <Route
           path="/details/:id"
           element={
@@ -181,7 +181,7 @@ return (
       </Routes>
       <Widget senderPlaceHolder="Type a message..." title={`Welcome!`} subtitle="Chat with our customer service!" handleNewUserMessage={handleNewUserMessage}/>
     </BrowserRouter>
-      
+   
     </ThemeProvider>
 
     

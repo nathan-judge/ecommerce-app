@@ -53,7 +53,8 @@ const reviewsRoutes = require("./routes/reviews");
 app.use("/api/reviews", reviewsRoutes(db))
 
 
-
+const adminRoutes = require("./routes/admin")
+app.use("/api/admin", adminRoutes(db))
 
 app.get('/', (req, res) => {
   console.log("testget")

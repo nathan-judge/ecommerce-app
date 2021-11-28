@@ -30,9 +30,7 @@ function ProductInCart(props) {
             <img height="100px" src={props.image} alt={props.name}></img>
           </Link>
           <span className="cart-product-detail">
-            <Link to={"/details/" + props.product_id}>
-              <h3>{props.name}</h3>
-            </Link>
+            <h3 className="product-cart-name"> {props.name}</h3>
             <p>{props.description}</p>
             <p>${props.price}</p>
             <p>{productQuantity < 1 ? "Out of Stock" : "In Stock"}</p>
