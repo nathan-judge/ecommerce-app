@@ -7,19 +7,40 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
 import AdminDashboard from "./components/admin/AdminDashboard";
-import helpers from "./helpers/cartSubtotal"
-import { Widget, addResponseMessage } from "react-chat-widget"
-import "react-chat-widget/lib/styles.css";
-import {io} from 'socket.io-client'
 import ProductDetails from "./components/ProductDetails";
-const socket = io('http://localhost:8000');
-
+import helpers from "./helpers/cartSubtotal";
+import styled, { ThemeProvider } from "styled-components";
+import WebFont from "webfontloader";
+import { GlobalStyles } from "./theme/GlobalStyles";
+import { useTheme } from "./theme/useTheme";
+import { Widget, addResponseMessage } from "react-chat-widget";
+import "react-chat-widget/lib/styles.css";
+import { io } from "socket.io-client";
+const socket = io("http://localhost:8000");
 
 function App() {
+  const Container = styled.div`
+    margin: 5px auto 5px auto;
+  `;
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [itemsCount, setItemsCount] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
+  const { theme, themeLoaded, getFonts } = useTheme();
+  const [selectedTheme, setSelectedTheme] = useState(theme);
+
+  useEffect(() => {
+    setSelectedTheme(theme);
+  }, [themeLoaded]);
+
+  // 4: Load all the fonts
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: getFonts()
+      }
+    });
+  });
 
   const added = (productId) => {
     for (const product of cart) {
@@ -87,70 +108,85 @@ function App() {
   };
 
   useEffect(() => {
-    addResponseMessage('Welcome to BuyNow! If you have any questions regarding this store, feel free to type it in the chat, we will get back to you shortly!')
-    socket.on('receive-message', (message) => {
-      console.log("MESSAGE IS: ", message)
+    addResponseMessage(
+      "Welcome to BuyNow! If you have any questions regarding this store, feel free to type it in the chat, we will get back to you shortly!"
+    );
+    socket.on("receive-message", (message) => {
+      console.log("MESSAGE IS: ", message);
       addResponseMessage(message);
     });
   }, []);
   const handleNewUserMessage = (newMessage) => {
-    console.log(`New message incoming! ${newMessage}`)
+    console.log(`New message incoming! ${newMessage}`);
     //to send message use 'emit' emit will emit messages including themselves (broadcast doesn't include themselves)
-    socket.emit('send-message', newMessage);
+    socket.emit("send-message", newMessage);
     //to listen for messages use 'on'
-
-  }
+  };
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("/api/products");
-        setProducts(response.data.products);
-        console.log("response.data :", response.data);
-      } catch (err) {}
-    };
     fetchProducts();
     fetchCart();
   }, []);
 
   return (
-    <BrowserRouter>
-      <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProductList
-              products={products}
-              fetchCart={fetchCart}
-              cart={cart}
-              added={added}
-              addToCart={addToCart}
+    <>
+      {themeLoaded && (
+        <ThemeProvider theme={selectedTheme}>
+          <GlobalStyles />
+
+          {/* <ThemeSelector setter={setSelectedTheme} /> */}
+          <BrowserRouter>
+            <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
+            <Routes>
+              <Route
+                path="/home"
+                element={
+                  <ProductList
+                    products={products}
+                    fetchCart={fetchCart}
+                    cart={cart}
+                    added={added}
+                    addToCart={addToCart}
+                  />
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <Cart
+                    cart={cart}
+                    itemsCount={itemsCount}
+                    subtotal={subtotal}
+                    fetchCart={fetchCart}
+                    setCart={setCart}
+                  />
+                }
+              />
+              <Route
+                path="/admin"
+                element={<AdminDashboard products={products} setSelectedTheme={setSelectedTheme} />}
+              />
+              <Route
+                path="/details/:id"
+                element={
+                  <ProductDetails
+                    added={added}
+                    addToCart={addToCart}
+                    cart={cart}
+                  />
+                }
+              />
+            </Routes>
+            <Widget
+              senderPlaceHolder="Type a message..."
+              title={`Welcome!`}
+              subtitle="Chat with our customer service!"
+              handleNewUserMessage={handleNewUserMessage}
             />
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            <Cart
-              cart={cart}
-              itemsCount={itemsCount}
-              subtotal={subtotal}
-              fetchCart={fetchCart}
-              setCart={setCart}
-            />
-          }
-        />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route
-          path="/details/:id"
-          element={
-            <ProductDetails added={added} addToCart={addToCart} cart={cart} />
-          }
-        />
-      </Routes>
-      <Widget handleNewUserMessage={handleNewUserMessage}/>
-    </BrowserRouter>
+          </BrowserRouter>
+        </ThemeProvider>
+      )}
+    </>
   );
 }
 

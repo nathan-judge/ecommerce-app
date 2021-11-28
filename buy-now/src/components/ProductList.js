@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import React from "react";
 import ProductListItem from "./ProductListItem";
 import "./product-list.scss"
@@ -11,7 +11,11 @@ export default function ProductList(props) {
 
   return (
     <main>
+<<<<<<< HEAD
       <h1>Products</h1>
+=======
+
+>>>>>>> a870e259ba2af1ae9dda89deca2095beed792b9b
       <div className="list">
         {props.products.map((product, key) => {
           return (
@@ -28,6 +32,8 @@ export default function ProductList(props) {
               cart={props.cart}
               addToCart={props.addToCart}
               added={props.added}
+              avg_rating={product.avg_rating}
+              number_of_ratings={product.number_of_ratings}
             />
           );
         })}

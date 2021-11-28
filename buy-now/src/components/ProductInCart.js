@@ -2,6 +2,7 @@
 import { Card, Button } from "antd";
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function ProductInCart(props) {
   const [cartQuantity, setCartQuantity] = useState(props.cart_quantity);
@@ -25,9 +26,11 @@ function ProductInCart(props) {
     <div>
       <Card className="cart-card" style={{ width: "100%" }}>
         <div className="cart-item">
-          <img height="100px" src={props.image} alt={props.name}></img>
+          <Link to={"/details/" + props.product_id}>
+            <img height="100px" src={props.image} alt={props.name}></img>
+          </Link>
           <span className="cart-product-detail">
-            <h3>{props.name}</h3>
+            <h3 className="product-cart-name"> {props.name}</h3>
             <p>{props.description}</p>
             <p>${props.price}</p>
             <p>{productQuantity < 1 ? "Out of Stock" : "In Stock"}</p>

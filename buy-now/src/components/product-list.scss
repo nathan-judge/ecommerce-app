@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
 .list{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: auto;
-  align-content: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(400px, 1fr));
+  justify-content: center;
+  font-family: 'Spartan', sans-serif;
 
 }
 .product-detail {
@@ -12,13 +11,40 @@
 }
 .price-tag {
   border: 1px solid black;
-  background:aqua;
+  background:black;
   padding:0.5em;
 }
 .price-count {
   display: flex;
   justify-content: space-between;
 }
-.product-card{
+.ant-card{
   margin: 20px !important;
+}
+.ant-card-body{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.product-card-contents{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1.5em;
+  padding: 2.5em;
+}
+a{
+  display: flex;
+  justify-content: center;
+}
+.price-tag {
+  border: 1px solid transparent;
+  background: inherit;
+  padding: 0.5em;
+  font-size: 22px;
+}
+.product-name{
+  font-family: 'Spartan', sans-serif;
+  font-size: 20px;
+  padding-top: 0.5em;
 }
