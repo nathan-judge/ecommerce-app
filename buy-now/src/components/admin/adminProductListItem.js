@@ -1,8 +1,8 @@
-import { Card, Button } from "antd";
+import {  Button } from "antd";
 import { Link } from "react-router-dom";
 
 
-function adminProductListItem(props) {
+function AdminProductListItem(props) {
   const id = props.id;
 
   return (
@@ -23,9 +23,9 @@ function adminProductListItem(props) {
         </div>
         <div className="price-count">
             <div className="price-tag">{props.price}</div>
-            <Button onClick={() => props.addToCart(props.id)}>
+            {/* <Button onClick={() => props.addToCart(props.id)}>
               {props.added(props.id, props.cart)}
-            </Button>
+            </Button> */}
           </div>
       </div>
   
@@ -33,4 +33,4 @@ function adminProductListItem(props) {
   );
 }
 
-export default adminProductListItem;
+export default AdminProductListItem;

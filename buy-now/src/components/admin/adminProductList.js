@@ -1,11 +1,12 @@
 import axios from "axios";
 import React from "react";
-import adminProductListItem from "./adminProductListItem";
-// import ProductListItem from "./ProductListItem";
+import AdminProductListItem from "./AdminProductListItem";
 
 
 
-export default function adminProductList(props) {
+
+
+function AdminProductList(props) {
   
 
   return (
@@ -14,7 +15,7 @@ export default function adminProductList(props) {
       <div className="list">
         {props.products.map((product, key) => {
           return (
-      <adminProductListItem
+      <AdminProductListItem
       key={key}
       id={product.id}
       name={product.name}
@@ -30,3 +31,4 @@ export default function adminProductList(props) {
     </main>
   );
 }
+export default AdminProductList;

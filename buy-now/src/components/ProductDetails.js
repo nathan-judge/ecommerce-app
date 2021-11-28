@@ -150,7 +150,7 @@ function ProductDetails(props) {
               <Button
                 htmlType="submit"
                 type="primary"
-                onClick={(e) => console.log("EEEE", e.target)}
+                // onClick={(e) => console.log("EEEE", e.target)}
               >
                 Submit
               </Button>{" "}
