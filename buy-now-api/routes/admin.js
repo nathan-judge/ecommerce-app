@@ -19,5 +19,30 @@ module.exports = (db) => {
   });
 
 
+  router.post("/editProduct/:id", async(req, res) => {
+    console.log("testing", req.body)
+  try {
+    const data = await db.query(`
+    UPDATE products SET name = $1, 
+                        price = $2, 
+                        quantity = $3 , 
+                        thumbnail_photo_url = $4 , 
+                        description = $5, 
+                        category = $6
+                    WHERE products.id = $7;`,
+    [req.body.name, req.body.price, req.body.quantity, req.body.thumbnail_photo_url, req.body.description, req.body.category, req.params.id]
+    );
+
+    res.status(200).send({productUpdated: true});
+    
+    }
+    catch(e) {
+      res
+        .status(500)
+        .send({ error: e.message });
+    }
+});
+  
+
   return router;
 };
