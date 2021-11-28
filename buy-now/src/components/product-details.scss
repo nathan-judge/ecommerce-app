@@ -1,12 +1,17 @@
-.product-details {
-  margin: 6rem;
+.product-details-container{
   border: 2px solid black;
+  margin: 6rem;
   padding: 4rem;
+}
+.product-details {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 .price-tag {
   border: 1px solid black;
   background:aqua;
   padding:0.5em;
+}
+.product-info{
+  margin-left: 4em;
 }
