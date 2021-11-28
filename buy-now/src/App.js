@@ -179,7 +179,7 @@ return (
           }
         />
       </Routes>
-      <Widget style="margin: px;"senderPlaceHolder="Type a message..." title={`Welcome!`} subtitle="Chat with our customer service!" handleNewUserMessage={handleNewUserMessage}/>
+      <Widget senderPlaceHolder="Type a message..." title={`Welcome!`} subtitle="Chat with our customer service!" handleNewUserMessage={handleNewUserMessage}/>
     </BrowserRouter>
       </Container>
     </ThemeProvider>
