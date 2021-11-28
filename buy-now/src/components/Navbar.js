@@ -8,7 +8,7 @@ function Navbar(props) {
   // const { cart } = props
   return (
     <div className="nav-bar">
-      <Link to="/">
+      <Link to="/home">
         <h1 className="nav-title">BuyNow!</h1>
       </Link>
       <Searchbar searchProduct={props.searchProduct} cartTotal={props.cartTotal}/>
