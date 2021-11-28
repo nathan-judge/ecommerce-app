@@ -46,7 +46,7 @@ const AddProductForm = () => {
         Add Product
       </Button>
       <Modal
-        title="Basic Modal"
+        title="Add Product"
         visible={isModalVisible}
         // onOk={handleSubmit}
         // onCancel={handleCancel}

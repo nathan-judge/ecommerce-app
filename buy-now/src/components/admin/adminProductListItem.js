@@ -1,9 +1,16 @@
 import {  Button } from "antd";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import EditPoductList from "./EditProductList"
 
 function AdminProductListItem(props) {
   const id = props.id;
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
 
   return (
    
@@ -22,10 +29,16 @@ function AdminProductListItem(props) {
          
         </div>
         <div className="price-count">
-            <div className="price-tag">{props.price}</div>
-            {/* <Button onClick={() => props.addToCart(props.id)}>
-              {props.added(props.id, props.cart)}
-            </Button> */}
+            <div className="price-tag">${props.price}</div>
+            <div>
+            <Button type="primary" onClick={showModal}>
+        Edit
+      </Button>
+      <EditPoductList product={props.product} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+            <Button>
+              Delete
+            </Button>
+            </div>
           </div>
       </div>
   

@@ -8,7 +8,6 @@ import AdminProductListItem from "./AdminProductListItem";
 
 function AdminProductList(props) {
   
-
   return (
     <main>
 
@@ -24,6 +23,7 @@ function AdminProductList(props) {
       image={product.thumbnail_photo_url}
       description={product.description}
       category={product.category}
+      product={product}
       />
           );
         })}

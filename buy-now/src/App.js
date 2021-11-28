@@ -13,7 +13,6 @@ import styled, { ThemeProvider } from "styled-components";
 import WebFont from "webfontloader";
 import { GlobalStyles } from "./theme/GlobalStyles";
 import { useTheme } from "./theme/useTheme";
-import ThemeSelector from "./components/admin/ThemeSelector";
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import { io } from "socket.io-client";
@@ -125,13 +124,6 @@ function App() {
   };
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("/api/products");
-        setProducts(response.data.products);
-        console.log("response.data :", response.data);
-      } catch (err) {}
-    };
     fetchProducts();
     fetchCart();
   }, []);
@@ -142,12 +134,12 @@ function App() {
         <ThemeProvider theme={selectedTheme}>
           <GlobalStyles />
 
-          <ThemeSelector setter={setSelectedTheme} />
+          {/* <ThemeSelector setter={setSelectedTheme} /> */}
           <BrowserRouter>
             <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
             <Routes>
               <Route
-                path="/"
+                path="/home"
                 element={
                   <ProductList
                     products={products}
@@ -172,7 +164,7 @@ function App() {
               />
               <Route
                 path="/admin"
-                element={<AdminDashboard products={products} />}
+                element={<AdminDashboard products={products} setSelectedTheme={setSelectedTheme} />}
               />
               <Route
                 path="/details/:id"
