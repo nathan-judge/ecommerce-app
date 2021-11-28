@@ -142,7 +142,7 @@ return (
   {
     themeLoaded && <ThemeProvider theme={ selectedTheme }>
       <GlobalStyles/>
-      <Container style={{fontFamily: selectedTheme.font}}>
+      
       <ThemeSelector setter={ setSelectedTheme } />
       <BrowserRouter>
       <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
@@ -181,7 +181,7 @@ return (
       </Routes>
       <Widget senderPlaceHolder="Type a message..." title={`Welcome!`} subtitle="Chat with our customer service!" handleNewUserMessage={handleNewUserMessage}/>
     </BrowserRouter>
-      </Container>
+      
     </ThemeProvider>
 
     
