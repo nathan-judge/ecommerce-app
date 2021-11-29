@@ -13,10 +13,7 @@ const ThemedButton = styled.button`
     margin-top: 50px;
     width: 100%;
     cursor: pointer;
-    z-index: 5000
 `;
-
-
 
 const Container = styled.ul`
     display: grid;
@@ -25,7 +22,6 @@ const Container = styled.ul`
     margin-top: 3rem;
     padding: 10px;
 `;
-
 
 
 export default (props) => {

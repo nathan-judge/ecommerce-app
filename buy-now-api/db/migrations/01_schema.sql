@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS usertypes CASCADE;
 DROP TABLE IF EXISTS products CASCADE;
+DROP TABLE IF EXISTS reviews CASCADE;
 DROP TABLE IF EXISTS carts CASCADE;
 DROP TABLE IF EXISTS orders CASCADE;
 DROP TABLE IF EXISTS order_lineItems CASCADE;
@@ -27,8 +28,19 @@ CREATE TABLE products (
   quantity INTEGER,
   thumbnail_photo_url VARCHAR(255),
   description TEXT,
-  category VARCHAR(255)
+  category VARCHAR(255),
+  number_of_ratings INTEGER DEFAULT 0,
+  avg_rating DECIMAL DEFAULT 0
 );
+
+CREATE TABLE reviews (
+  id SERIAL PRIMARY KEY NOT NULL,
+  product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
+  username VARCHAR(255),
+  comment TEXT,
+  rating DECIMAL,
+  created_at TIMESTAMP DEFAULT current_timestamp
+)
 
 
 

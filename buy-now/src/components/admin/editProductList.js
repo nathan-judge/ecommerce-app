@@ -1,20 +1,14 @@
-import React, { useState } from "react";
-
 import { Button, Form, Input, Modal } from "antd";
 import axios from "axios";
 const { TextArea } = Input;
 
-const AddProductForm = (props) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+const EditProductForm = (props) => {
+  const id = props.product.id;
 
   const onFinish = async (values) => {
-    console.log("Success:", values.product.name);
+    console.log("Success:", values.product);
     try {
-      await axios.post("/api/admin/addProduct", {
+      await axios.post("/api/admin/edit_product/" + id, {
         name: values.product.name,
         price: values.product.price,
         quantity: values.product.quantity,
@@ -22,10 +16,10 @@ const AddProductForm = (props) => {
         description: values.product.description,
         category: values.product.category
       });
-      setIsModalVisible(false);
+      props.setIsEditModalVisible(false);
       props.fetchProducts()
     } catch (e) {
-      console.log("Error adding product", e);
+      console.log("Error updating product", e);
     }
   };
   const onFinishFailed = (errorInfo) => {
@@ -34,18 +28,19 @@ const AddProductForm = (props) => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
-        Add Product
-      </Button>
       <Modal
-        title="Add Product"
-        visible={isModalVisible}
+        title="Edit Product"
+        visible={props.isEditModalVisible}
+        // onOk={handleSubmit}
+        onCancel={() => props.setIsEditModalVisible(false)}
+        // okText="Submit"
         footer={false}
       >
         <Form
+          initialValues={{ product: props.product }}
           onFinish={onFinish}
           labelCol={{
-            span: 5,
+            span: 5
           }}
           onFinishFailed={onFinishFailed}
         >
@@ -127,12 +122,15 @@ const AddProductForm = (props) => {
             <Button
               htmlType="submit"
               type="primary"
-              
+              onClick={(e) => console.log(id)}
             >
               Submit
             </Button>{" "}
             &nbsp;
-            <Button type="default" onClick={() => setIsModalVisible(false)}>
+            <Button
+              type="default"
+              onClick={() => props.setIsEditModalVisible(false)}
+            >
               Cancel
             </Button>
           </Form.Item>
@@ -141,4 +139,4 @@ const AddProductForm = (props) => {
     </div>
   );
 };
-export default AddProductForm;
+export default EditProductForm;

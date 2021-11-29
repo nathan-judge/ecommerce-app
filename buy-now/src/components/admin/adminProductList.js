@@ -1,20 +1,16 @@
-
+import axios from "axios";
 import React from "react";
-import ProductListItem from "./ProductListItem";
-import "./product-list.scss"
+import AdminProductListItem from "./AdminProductListItem";
 
-
-
-export default function ProductList(props) {
-  
-  
+function AdminProductList(props) {
+  console.log("props :", props);
 
   return (
     <main>
       <div className="list">
         {props.products.map((product, key) => {
           return (
-            <ProductListItem
+            <AdminProductListItem
               key={key}
               id={product.id}
               name={product.name}
@@ -23,12 +19,8 @@ export default function ProductList(props) {
               image={product.thumbnail_photo_url}
               description={product.description}
               category={product.category}
-              fetchCart={props.fetchCart}
-              cart={props.cart}
-              addToCart={props.addToCart}
-              added={props.added}
-              avg_rating={product.avg_rating}
-              number_of_ratings={product.number_of_ratings}
+              product={product}
+              fetchProducts={props.fetchProducts}
             />
           );
         })}
@@ -36,3 +28,4 @@ export default function ProductList(props) {
     </main>
   );
 }
+export default AdminProductList;
