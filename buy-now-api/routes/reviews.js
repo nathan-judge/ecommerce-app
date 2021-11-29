@@ -14,23 +14,26 @@ module.exports = (db) => {
     }
   });
   router.post("/:id", async (req, res) => {
+    console.log("req is: ", req)
     try {
       // product id, old avg rating, new rating, old number of items, review, user name
       const numberOfRatings = parseInt(req.body.number_of_ratings) + 1;
-
+      //SHOULD LOAD WITH THE PAGE (not working because INT doesn't exist)
       let newAvgRating =
-        (parseInt(req.body.number_of_ratings) *
-          parseFloat(req.body.avg_rating) +
-          parseFloat(req.body.rating)) /
-        numberOfRatings;
-
+      (parseInt(req.body.number_of_ratings) *
+      parseFloat(req.body.avg_rating) +
+      parseFloat(req.body.rating)) /
+      numberOfRatings;
+      console.log("newAvgRating is: ", newAvgRating)
+      
       await db.query(
         `UPDATE products 
         SET number_of_ratings = $1, avg_rating = $2 
         WHERE id = $3`,
         [numberOfRatings, newAvgRating, req.body.product_id]
+        
       );
-
+      console.log("2nd CONSOLE LOG IN POST")
       await db.query(
         `INSERT INTO reviews (product_id, username, comment, rating) 
         VALUES ($1, $2, $3, $4);`,
@@ -41,7 +44,7 @@ module.exports = (db) => {
           req.body.rating
         ]
       );
-
+      console.log("3RD CONSOLE LOG IN POST")
       res.status(200).send({ updated: true });
     } catch (e) {
       res.status(400).send({ error: e.message });
