@@ -25,7 +25,7 @@ function ProductDetails(props) {
         ...values.review
       });
       fetchProduct();
-      setShowReviewForm(false)
+      setShowReviewForm(false);
     } catch (e) {
       console.log("Error submitting review", e);
     }
@@ -41,8 +41,7 @@ function ProductDetails(props) {
       let product = response.data;
       console.log("********", product);
       setProduct(product.product);
-      fetchReviews()
-
+      fetchReviews();
     } catch (e) {
       console.log("Error fetching product details", e);
     }
@@ -86,11 +85,11 @@ function ProductDetails(props) {
               <span className="price-tag">${product.price}</span>
             </div>
             <br />
-            <div>
+            <div style={{display: "flex"}}>
               <Button onClick={() => props.addToCart(product.id)}>
                 {props.added(product.id, props.cart)}
               </Button>
-              <br />
+              &nbsp;&nbsp;
               <Button
                 type="primary"
                 onClick={() => setShowReviewForm(!showReviewForm)}
@@ -161,7 +160,11 @@ function ProductDetails(props) {
             </Form.Item>
           </Form>
         )}
-        {product.id && <Reviews reviews={reviews} />}
+        {product.id && (
+          <div className="reviews-box">
+            <Reviews reviews={reviews} />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
 .cart {
-  padding: 0 8em;
+  padding: 130px 8em;
   font-family: 'Spartan', sans-serif;
   & h3 {
     font-weight: bolder;
   }
 }
-
 .cart-total {
   display: flex;
   flex-direction: column;

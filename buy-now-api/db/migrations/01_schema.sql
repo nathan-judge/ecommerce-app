@@ -29,8 +29,8 @@ CREATE TABLE products (
   thumbnail_photo_url VARCHAR(255),
   description TEXT,
   category VARCHAR(255),
-  number_of_ratings INTEGER,
-  avg_rating DECIMAL
+  number_of_ratings INTEGER DEFAULT 0,
+  avg_rating DECIMAL DEFAULT 0
 );
 
 CREATE TABLE reviews (

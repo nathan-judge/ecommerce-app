@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
 module.exports = (db) => {
   
@@ -14,7 +14,7 @@ module.exports = (db) => {
           req.body.quantity,
           req.body.thumbnail_photo_url,
           req.body.description,
-          req.body.category,
+          req.body.category
         ]
       );
 
@@ -24,8 +24,8 @@ module.exports = (db) => {
     }
   });
 
-  router.post("/editProduct/:id", async (req, res) => {
-    console.log("req.params is: ", req.params);
+  router.post("/edit_product/:id", async (req, res) => {
+    console.log("testing", req.body);
     try {
       const data = await db.query(
         `
@@ -43,7 +43,7 @@ module.exports = (db) => {
           req.body.thumbnail_photo_url,
           req.body.description,
           req.body.category,
-          req.params.id,
+          req.params.id
         ]
       );
 
@@ -53,23 +53,20 @@ module.exports = (db) => {
     }
   });
 
-  router.delete("/deleteProduct/:id", async (req, res) => {
-    console.log("req.params is", req.params);
+  router.post("/delete_product/:id", async (req, res) => {
+    console.log("testing", req.body);
     try {
       const data = await db.query(
-        `
-    DELETE FROM products 
-    WHERE products.id = $1`,
+        `DELETE FROM products
+          WHERE id = $1 `,
         [req.params.id]
       );
-      console.log("DELETE PRODUCT STEP 2 REACHED");
+
       res.status(200).send({ productDeleted: true });
     } catch (e) {
       res.status(500).send({ error: e.message });
     }
   });
-
- 
 
   return router;
 };

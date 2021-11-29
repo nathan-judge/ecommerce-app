@@ -1,6 +1,5 @@
 import { Card, Rate } from "antd";
-import axios from "axios";
-import { useEffect, useState } from "react";
+
 
 function Reviews(props) {
   return (

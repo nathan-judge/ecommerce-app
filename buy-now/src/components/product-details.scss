@@ -1,20 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
 .product-details {
-  margin: 6rem;
+  margin: 10rem 8rem 0 8rem;
   border: 2px solid black;
-  margin: 6rem;
   padding: 4rem;
 }
 .product-details {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   font-family: 'Spartan', sans-serif;
 }
 .price-tag {
-    border: 1px solid transparent;
     background: inherit;
-    padding: 0.5em;
     font-size: 22px;
     font-family: 'Spartan', sans-serif;
   
+}
+.reviews-box{
+  margin: 0 8rem !important;
+}
+.product-info{
+  margin-left: 40px;
 }
