@@ -3,14 +3,12 @@ import axios from "axios";
 const { TextArea } = Input;
 
 const EditProductForm = (props) => {
-  
-  const id = props.product.id
-  
+  const id = props.product.id;
+
   const onFinish = async (values) => {
     console.log("Success:", values.product);
     try {
-            
-      await axios.post("/api/admin/editProduct/" + id, {
+      await axios.post("/api/admin/edit_product/" + id, {
         name: values.product.name,
         price: values.product.price,
         quantity: values.product.quantity,
@@ -18,7 +16,8 @@ const EditProductForm = (props) => {
         description: values.product.description,
         category: values.product.category
       });
-      props.setIsModalVisible(false);
+      props.setIsEditModalVisible(false);
+      props.fetchProducts()
     } catch (e) {
       console.log("Error updating product", e);
     }
@@ -29,20 +28,19 @@ const EditProductForm = (props) => {
 
   return (
     <div>
-      
       <Modal
         title="Edit Product"
-        visible={props.isModalVisible}
+        visible={props.isEditModalVisible}
         // onOk={handleSubmit}
-        // onCancel={handleCancel}
+        onCancel={() => props.setIsEditModalVisible(false)}
         // okText="Submit"
         footer={false}
       >
         <Form
-         initialValues={{product: props.product}}
+          initialValues={{ product: props.product }}
           onFinish={onFinish}
           labelCol={{
-            span: 5,
+            span: 5
           }}
           onFinishFailed={onFinishFailed}
         >
@@ -129,7 +127,10 @@ const EditProductForm = (props) => {
               Submit
             </Button>{" "}
             &nbsp;
-            <Button type="default" onClick={() => props.setIsModalVisible(false)}>
+            <Button
+              type="default"
+              onClick={() => props.setIsEditModalVisible(false)}
+            >
               Cancel
             </Button>
           </Form.Item>

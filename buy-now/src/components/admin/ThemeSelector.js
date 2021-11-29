@@ -13,7 +13,6 @@ const ThemedButton = styled.button`
     margin-top: 50px;
     width: 100%;
     cursor: pointer;
-    z-index: 5000
 `;
 
 const Container = styled.ul`

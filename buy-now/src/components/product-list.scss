@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
 .list{
+  padding-top: 120px;
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
   justify-content: center;
   font-family: 'Spartan', sans-serif;
 

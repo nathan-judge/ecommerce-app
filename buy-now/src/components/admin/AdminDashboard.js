@@ -8,8 +8,8 @@ function AdminDashboard(props) {
       <div className="adminDashboard">
         <ThemeSelector setter={props.setSelectedTheme} />
       <h1 style={{ paddingTop: 100 }}>ADMIN DASHBOARD</h1>
-      <AddProductForm />
-      <AdminProductList products={props.products} />
+      <AddProductForm fetchProducts={props.fetchProducts} />
+      <AdminProductList products={props.products} fetchProducts={props.fetchProducts} />
       </div>
     );
   }

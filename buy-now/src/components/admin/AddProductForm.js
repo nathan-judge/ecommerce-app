@@ -4,21 +4,12 @@ import { Button, Form, Input, Modal } from "antd";
 import axios from "axios";
 const { TextArea } = Input;
 
-const AddProductForm = () => {
+const AddProductForm = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
   };
-
-  // const handleSubmit = (values) => {
-  //   console.log('ADDPRODUCT***', values)
-  //   setIsModalVisible(false);
-  // };
-
-  // const handleCancel = () => {
-  //   setIsModalVisible(false);
-  // };
 
   const onFinish = async (values) => {
     console.log("Success:", values.product.name);
@@ -32,8 +23,9 @@ const AddProductForm = () => {
         category: values.product.category
       });
       setIsModalVisible(false);
+      props.fetchProducts()
     } catch (e) {
-      console.log("Error submitting review", e);
+      console.log("Error adding product", e);
     }
   };
   const onFinishFailed = (errorInfo) => {
@@ -48,9 +40,6 @@ const AddProductForm = () => {
       <Modal
         title="Add Product"
         visible={isModalVisible}
-        // onOk={handleSubmit}
-        // onCancel={handleCancel}
-        // okText="Submit"
         footer={false}
       >
         <Form
