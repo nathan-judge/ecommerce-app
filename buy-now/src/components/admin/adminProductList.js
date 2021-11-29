@@ -4,9 +4,8 @@ import AdminProductListItem from "./AdminProductListItem";
 
 
 
-
-
 function AdminProductList(props) {
+console.log('props :', props);
   
   return (
     <main>

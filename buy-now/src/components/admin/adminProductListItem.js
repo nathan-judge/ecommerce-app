@@ -2,6 +2,7 @@ import {  Button } from "antd";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import EditPoductList from "./EditProductList"
+import axios from "axios";
 
 function AdminProductListItem(props) {
   const id = props.id;
@@ -10,6 +11,21 @@ function AdminProductListItem(props) {
   const showModal = () => {
     setIsModalVisible(true);
   };
+  console.log("props is: ", props)
+  console.log("props.image is: ", props.image)
+
+  const deleteProduct = async () => {
+  
+    try {
+      
+      await axios.delete("/api/admin/deleteProduct/" + id, {
+      
+    });
+    
+  } catch (e) {
+    console.log("Error deleting product", e);
+  }
+};
 
 
   return (
@@ -35,7 +51,7 @@ function AdminProductListItem(props) {
         Edit
       </Button>
       <EditPoductList product={props.product} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
-            <Button>
+            <Button onClick={() => {deleteProduct()}}>
               Delete
             </Button>
             </div>

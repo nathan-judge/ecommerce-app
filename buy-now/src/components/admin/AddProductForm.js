@@ -27,7 +27,7 @@ const AddProductForm = () => {
         name: values.product.name,
         price: values.product.price,
         quantity: values.product.quantity,
-        image: values.product.thumbnail_photo_url,
+        thumbnail_photo_url: values.product.thumbnail_photo_url,
         description: values.product.description,
         category: values.product.category
       });

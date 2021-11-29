@@ -4,16 +4,17 @@ const { TextArea } = Input;
 
 const EditProductForm = (props) => {
   
-
+  const id = props.product.id
   
   const onFinish = async (values) => {
     console.log("Success:", values.product);
     try {
-      await axios.post("/api/admin/addProduct", {
+            
+      await axios.post("/api/admin/editProduct/" + id, {
         name: values.product.name,
         price: values.product.price,
         quantity: values.product.quantity,
-        image: values.product.thumbnail_photo_url,
+        thumbnail_photo_url: values.product.thumbnail_photo_url,
         description: values.product.description,
         category: values.product.category
       });
@@ -123,7 +124,7 @@ const EditProductForm = (props) => {
             <Button
               htmlType="submit"
               type="primary"
-              
+              onClick={(e) => console.log(id)}
             >
               Submit
             </Button>{" "}
