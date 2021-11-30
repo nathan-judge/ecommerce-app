@@ -71,12 +71,11 @@ function App() {
       const cartId = localStorage.getItem("cart_id");
 
       const url = "/api/cart/" + cartId;
-      console.log("before aci", productId);
       const res = await axios.post(url, {
         product_id: productId,
         cart_id: cartId
       });
-      console.log("pppp", res.data);
+      
       if (!cartId) {
         localStorage.setItem("cart_id", res.data.cart_id);
       }
