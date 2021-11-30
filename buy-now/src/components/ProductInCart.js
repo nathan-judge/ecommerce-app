@@ -1,4 +1,3 @@
-//import 'antd/dist/antd.css';
 import { Card, Button } from "antd";
 import axios from "axios";
 import { useState } from "react";
@@ -6,7 +5,6 @@ import { Link } from "react-router-dom";
 
 function ProductInCart(props) {
   const [cartQuantity, setCartQuantity] = useState(props.cart_quantity);
-  const [productQuantity] = useState(props.product_quantity);
 
   const changeQuantity = async (newQuantity) => {
     try {
@@ -33,18 +31,20 @@ function ProductInCart(props) {
             <h3 className="product-cart-name"> {props.name}</h3>
             <p>{props.description}</p>
             <p>${props.price}</p>
-            <p>{productQuantity < 1 ? "Out of Stock" : "In Stock"}</p>
+            <p>{props.product_quantity < 1 ? "Out of Stock" : "In Stock"}</p>
             <span className="cart-edit">
               <div>
-                <Button onClick={() => changeQuantity(cartQuantity - 1)}>
+                <Button disabled={cartQuantity <= 1} onClick={() => changeQuantity(cartQuantity - 1)}>
                   -
                 </Button>
                 &nbsp;
                 <div>{props.cart_quantity}</div>
                 &nbsp;
-                <Button onClick={() => changeQuantity(cartQuantity + 1)}>
+
+                <Button disabled={cartQuantity >= props.product_quantity} onClick={() => changeQuantity(cartQuantity + 1)}>
                   +
                 </Button>
+                
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Button type="primary" danger onClick={() => changeQuantity(0)}>

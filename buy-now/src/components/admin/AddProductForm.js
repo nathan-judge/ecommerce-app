@@ -5,10 +5,10 @@ import axios from "axios";
 const { TextArea } = Input;
 
 const AddProductForm = (props) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
 
   const showModal = () => {
-    setIsModalVisible(true);
+    setIsAddModalVisible(true);
   };
 
   const onFinish = async (values) => {
@@ -22,7 +22,7 @@ const AddProductForm = (props) => {
         description: values.product.description,
         category: values.product.category
       });
-      setIsModalVisible(false);
+      setIsAddModalVisible(false);
       props.fetchProducts()
     } catch (e) {
       console.log("Error adding product", e);
@@ -39,8 +39,9 @@ const AddProductForm = (props) => {
       </Button>
       <Modal
         title="Add Product"
-        visible={isModalVisible}
+        visible={isAddModalVisible}
         footer={false}
+        onCancel={() => setIsAddModalVisible(false)}
       >
         <Form
           onFinish={onFinish}
@@ -132,7 +133,7 @@ const AddProductForm = (props) => {
               Submit
             </Button>{" "}
             &nbsp;
-            <Button type="default" onClick={() => setIsModalVisible(false)}>
+            <Button type="default" onClick={() => setIsAddModalVisible(false)}>
               Cancel
             </Button>
           </Form.Item>

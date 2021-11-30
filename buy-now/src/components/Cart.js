@@ -1,10 +1,7 @@
 import ProductInCart from "./ProductInCart";
-
 import "./cart.scss";
-
 import axios from "axios";
 import { notification } from "antd";
-
 import StripeCheckout from "react-stripe-checkout";
 import EmptyCart from "./EmptyCart";
 
@@ -20,9 +17,9 @@ function Cart(props) {
   };
 
   const handleToken = async (token, address) => {
-    console.log(token, address);
     try {
-      await axios.post("/api/checkout", { token, cart: props.cart, subtotal: props.subtotal });
+      
+      await axios.post("/api/checkout", { token, address, cart: props.cart, subtotal: props.subtotal, cart_id: localStorage.getItem("cart_id") });
       openNotificationWithIcon("success");
       localStorage.removeItem("cart_id");
       props.setCart([]);
@@ -46,7 +43,7 @@ function Cart(props) {
                 image={product.thumbnail_photo_url}
                 description={product.description}
                 cart_quantity={product.number_of_items}
-                product_quantity={product.product_quantity}
+                product_quantity={product.quantity}
                 price={product.price}
                 fetchCart={props.fetchCart}
               />

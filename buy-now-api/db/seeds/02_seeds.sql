@@ -1,8 +1,8 @@
-INSERT INTO carts (id, product_id, number_of_items)
-VALUES ('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 1, 1),
-('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 2, 3),
-('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 3, 5),
-('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 1, 10);
+INSERT INTO carts (id, product_id, number_of_items, order_placed)
+VALUES ('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 1, 1, true),
+('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 2, 3, true),
+('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 3, 5, false),
+('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 1, 10, false);
 
 INSERT INTO order_status (id, status_description)
 VALUES (1, 'Order Created'),

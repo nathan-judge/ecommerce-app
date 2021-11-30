@@ -10,13 +10,9 @@ function ProductDetails(props) {
   const [product, setProduct] = useState({});
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [reviews, setReviews] = useState([]);
-
   const { id } = useParams();
-  console.log("useloc");
-  console.log("PARAM ID", id);
 
   const onFinish = async (values) => {
-    console.log("Success:", values);
     try {
       await axios.post("/api/reviews/" + product.id, {
         product_id: product.id,
@@ -39,7 +35,6 @@ function ProductDetails(props) {
     try {
       const response = await axios.get("/api/product/" + id);
       let product = response.data;
-      console.log("********", product);
       setProduct(product.product);
       fetchReviews();
     } catch (e) {
@@ -149,7 +144,6 @@ function ProductDetails(props) {
               <Button
                 htmlType="submit"
                 type="primary"
-                // onClick={(e) => console.log("EEEE", e.target)}
               >
                 Submit
               </Button>{" "}

@@ -164,7 +164,7 @@ function App() {
               />
               <Route
                 path="/admin"
-                element={<AdminDashboard products={products} setSelectedTheme={setSelectedTheme} fetchProducts={fetchProducts} />}
+                element={<AdminDashboard products={products} setSelectedTheme={setSelectedTheme} fetchProducts={fetchProducts} cart={cart} fetchCart={fetchCart} />}
               />
               <Route
                 path="/details/:id"

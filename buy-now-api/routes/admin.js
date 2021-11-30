@@ -2,7 +2,6 @@ const router = require("express").Router();
 
 module.exports = (db) => {
   router.post("/addProduct", async (req, res) => {
-    console.log("testing", req.body);
     try {
       const data = await db.query(
         `INSERT INTO products (name, price, quantity, thumbnail_photo_url, description, category)
@@ -24,7 +23,6 @@ module.exports = (db) => {
   });
 
   router.post("/edit_product/:id", async (req, res) => {
-    console.log("testing", req.body);
     try {
       const data = await db.query(
         `
@@ -53,7 +51,6 @@ module.exports = (db) => {
   });
 
   router.post("/delete_product/:id", async (req, res) => {
-    console.log("testing", req.body);
     try {
       const data = await db.query(
         `DELETE FROM products
@@ -62,6 +59,17 @@ module.exports = (db) => {
       );
 
       res.status(200).send({ productDeleted: true });
+    } catch (e) {
+      res.status(500).send({ error: e.message });
+    }
+  });
+
+  router.get("/order_history", async (req, res) => {
+    try {
+      const data = await db.query(`SELECT count(*) FROM carts where order_placed = true;`);
+      
+      
+      res.status(200).send(data.rows[0].count);
     } catch (e) {
       res.status(500).send({ error: e.message });
     }
