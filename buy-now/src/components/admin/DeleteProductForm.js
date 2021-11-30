@@ -1,23 +1,20 @@
 import { Button, Form, Modal } from "antd";
-import axios from "axios";
+import apiHelpers from "../../helpers/apiHelpers"
 
 
 const DeleteProductForm = (props) => {
   const id = props.product.id;
 
-  const onFinish = async (values) => {
-    console.log("DEleteSuccess:", values.product);
+  const onFinish = async () => {
     try {
-      await axios.post("/api/admin/delete_product/" + id);
+      await apiHelpers.deleteProduct(id);
       props.fetchProducts();
       props.setIsDeleteModalVisible(false);
     } catch (e) {
       console.log("Error deleting product", e);
     }
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  
 
   return (
     <div>
@@ -33,7 +30,7 @@ const DeleteProductForm = (props) => {
           labelCol={{
             span: 5
           }}
-          onFinishFailed={onFinishFailed}
+          
         >
           <p>Are you sure you want to delete this product?</p>
           <Form.Item>

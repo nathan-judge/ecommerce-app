@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import ProductList from "./components/ProductList";
-import axios from "axios";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
@@ -14,6 +13,7 @@ import WebFont from "webfontloader";
 import { GlobalStyles } from "./theme/GlobalStyles";
 import { useTheme } from "./theme/useTheme";
 import { Widget, addResponseMessage } from "react-chat-widget";
+import apiHelpers from "./helpers/apiHelpers";
 import "react-chat-widget/lib/styles.css";
 import { io } from "socket.io-client";
 import useAlan from "./hooks/useAlan"
@@ -47,14 +47,9 @@ function App() {
     });
   });
 
-  
   const fetchCart = async () => {
     try {
-      const cartId = localStorage.getItem("cart_id");
-      const url = "/api/cart/" + cartId;
-      const res = await axios.get(url);
-
-      let newCart = res.data.cart;
+      const newCart = await apiHelpers.fetchCart();
       setCart(newCart);
       const cartCountAndTotal = helpers.cartSubtotal(newCart);
       setItemsCount(cartCountAndTotal.count);
@@ -65,8 +60,8 @@ function App() {
   };
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("/api/products");
-      setProducts(response.data.products);
+      const products = await apiHelpers.fetchProducts();
+      setProducts(products);
     } catch (err) {
       console.log("Error fetching products", err);
     }
@@ -74,15 +69,10 @@ function App() {
   const addToCart = async (productId) => {
     try {
       const cartId = localStorage.getItem("cart_id");
+      const newCartId = await apiHelpers.addToCart(productId)
 
-      const url = "/api/cart/" + cartId;
-      const res = await axios.post(url, {
-        product_id: productId,
-        cart_id: cartId
-      });
-      
       if (!cartId) {
-        localStorage.setItem("cart_id", res.data.cart_id);
+        localStorage.setItem("cart_id", newCartId);
       }
       fetchCart();
     } catch (e) {
@@ -92,8 +82,7 @@ function App() {
 
   const searchProduct = async (value) => {
     try {
-      const response = await axios.get("api/products/search?term=" + value);
-      let productToShow = response.data.products;
+      let productToShow = await apiHelpers.searchProduct(value);
       setProducts(productToShow);
     } catch (e) {
       console.log("Error searching the product", e);
@@ -127,7 +116,7 @@ function App() {
           <BrowserRouter>
             <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
             <Routes>
-            <Route
+              <Route
                 path="/"
                 element={
                   <ProductList
@@ -165,7 +154,15 @@ function App() {
               />
               <Route
                 path="/admin"
-                element={<AdminDashboard products={products} setSelectedTheme={setSelectedTheme} fetchProducts={fetchProducts} cart={cart} fetchCart={fetchCart} />}
+                element={
+                  <AdminDashboard
+                    products={products}
+                    setSelectedTheme={setSelectedTheme}
+                    fetchProducts={fetchProducts}
+                    cart={cart}
+                    fetchCart={fetchCart}
+                  />
+                }
               />
               <Route
                 path="/details/:id"

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
 import { Button, Form, Input, Modal, Tooltip } from "antd";
-import axios from "axios";
-import { PlusSquareFilled } from '@ant-design/icons';
+import apiHelpers from "../../helpers/apiHelpers";
 
 const { TextArea } = Input;
 
@@ -14,9 +12,8 @@ const AddProductForm = (props) => {
   };
 
   const onFinish = async (values) => {
-    console.log("Success:", values.product.name);
     try {
-      await axios.post("/api/admin/addProduct", {
+      await apiHelpers.addProduct({
         name: values.product.name,
         price: values.product.price,
         quantity: values.product.quantity,
@@ -30,9 +27,7 @@ const AddProductForm = (props) => {
       console.log("Error adding product", e);
     }
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  
 
   return (
     <div>
@@ -52,7 +47,7 @@ const AddProductForm = (props) => {
           labelCol={{
             span: 5,
           }}
-          onFinishFailed={onFinishFailed}
+          
         >
           <Form.Item
             label="Name"

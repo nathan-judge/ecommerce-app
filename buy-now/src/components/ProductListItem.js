@@ -1,5 +1,6 @@
 import { Button, Rate } from "antd";
 import { Link } from "react-router-dom";
+import helpers from "../helpers/helpers";
 import "./product-list.scss";
 
 function ProductListItem(props) {
@@ -31,11 +32,15 @@ function ProductListItem(props) {
         <div>
           <div className="price-count">
             <div className="price-tag">${props.price}</div>
-            <div>{props.Quantity < 1 ? "Out of Stock" : "In Stock"}</div>
+            <div>{props.quantity < 1 ? "Out of Stock" : "In Stock"}</div>
           </div>
-          <Button onClick={() => props.addToCart(props.id)}>
-            {props.added(props.id, props.cart)}
-          </Button>
+          {props.quantity < 1 || helpers.isAddToCartDisabled(props.cart, props.id) ? (
+            <Button disabled={true}>Add to cart</Button>
+          ) : (
+            <Button onClick={() => props.addToCart(props.id)}>
+              {props.added(props.id, props.cart)}
+            </Button>
+          )}
         </div>
       </span>
       <div></div>

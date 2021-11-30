@@ -66,7 +66,17 @@ VALUES (2, 'Harry Potter', 'Great Painting', 4),
 INSERT INTO carts (id, product_id, number_of_items, order_placed)
 VALUES ('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 1, 1, true),
 ('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 2, 3, true),
-('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 3, 5, false),
-('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 1, 10, false);
+('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 3, 5, true),
+('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 1, 10, true),
+('bac6f6a0-5229-11ec-bf63-0242ac130002', 3, 4, true),
+('f44da428-5229-11ec-bf63-0242ac130002', 8, 2, true),
+('fe6b1152-5229-11ec-bf63-0242ac130002', 9, 4, true),
+('06f1e472-522a-11ec-bf63-0242ac130002', 6, 2, true),
+('128f376c-522a-11ec-bf63-0242ac130002', 2, 5, true),
+('197bd24c-522a-11ec-bf63-0242ac130002', 1, 3, true),
+('2182ae52-522a-11ec-bf63-0242ac130002', 8, 1, true),
+('2ab3477a-522a-11ec-bf63-0242ac130002', 6, 3, true),
+('33b44874-522a-11ec-bf63-0242ac130002', 5, 2, true),
+('3b3be9c6-522a-11ec-bf63-0242ac130002', 9, 2, true);
 
 
