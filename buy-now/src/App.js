@@ -114,7 +114,7 @@ function App() {
 
   useEffect(() => {
     addResponseMessage(
-      "Welcome to BuyNow! If you have any questions regarding this store, feel free to type it in the chat, we will get back to you shortly!"
+      "Welcome to BuyNow! Try out our AI and make a product query (i.e. Is (item) in stock?) Otherwise, feel free to send a message here, our customer service will respond shortly!"
     );
     socket.on("receive-message", (message) => {
       console.log("MESSAGE IS: ", message);

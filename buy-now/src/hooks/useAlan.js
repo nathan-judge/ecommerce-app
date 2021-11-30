@@ -16,8 +16,8 @@ export default function useAlan() {
     setAlanInstance(
 
       alanBtn({
-        bottom: "15px",
-        left: "15px",
+        bottom: "100px",
+        right: "15px",
         key: process.env.REACT_APP_ALAN_KEY,
         onCommand: (commandData) => {
          console.log(commandData)
