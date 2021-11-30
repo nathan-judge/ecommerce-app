@@ -138,6 +138,18 @@ function App() {
           <BrowserRouter>
             <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
             <Routes>
+            <Route
+                path="/"
+                element={
+                  <ProductList
+                    products={products}
+                    fetchCart={fetchCart}
+                    cart={cart}
+                    added={added}
+                    addToCart={addToCart}
+                  />
+                }
+              />
               <Route
                 path="/home"
                 element={

@@ -15,17 +15,10 @@
 .search {
   size: 15px;
   display: flex;
-  justify-content: space-between;
+  width: 300px;
+  // justify-content: space-between;
 }
 
-.search-text {
-  padding: 1em;
-}
-
-
-.search-text:focus {
-  outline: 0;
-}
 
 .search-icon {
   font-size: 1rem;

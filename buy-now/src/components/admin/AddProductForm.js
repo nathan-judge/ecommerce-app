@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
-import { Button, Form, Input, Modal } from "antd";
+import { Button, Form, Input, Modal, Tooltip } from "antd";
 import axios from "axios";
+import { PlusSquareFilled } from '@ant-design/icons';
+
 const { TextArea } = Input;
 
 const AddProductForm = (props) => {
@@ -34,9 +36,11 @@ const AddProductForm = (props) => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
-        Add Product
-      </Button>
+      <div style={{position: "fixed", bottom: 15, left: 15}}>
+      <Tooltip title="Add Product">
+      <Button style={{fontSize: "50px", borderRadius: "100%", height: "50px", display: "flex", alignItems: "center", justifyContent: "center", width: "50px", paddingTop: 15, backgroundColor: "#1890ff", color: "#fff", borderColor: "#1890ff"}}  type="link" onClick={showModal}>+</Button>
+    </Tooltip>
+    </div>
       <Modal
         title="Add Product"
         visible={isAddModalVisible}

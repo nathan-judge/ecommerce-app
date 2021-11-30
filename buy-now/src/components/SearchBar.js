@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./search.scss";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { Badge } from "antd";
+import { Badge, Input } from "antd";
 import { useLocation } from "react-router";
 
 // import axios from "axios";
@@ -19,14 +19,14 @@ function Searchbar(props) {
     <div className="forms">
       {pathname !== "/cart" && (
         <div className="search">
-          <input
+          <Input
             className="search-text"
             type="text"
             placeholder="Search Products"
             name="item-to-find"
             value={searchTerm}
             onChange={handleSearchChange}
-          ></input>
+          />
         </div>
       )}
       {pathname !== "/admin" && (

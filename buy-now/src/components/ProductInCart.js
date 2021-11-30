@@ -32,15 +32,12 @@ function ProductInCart(props) {
             <p>{props.description}</p>
             <p>${props.price}</p>
             <p>{props.product_quantity < 1 ? "Out of Stock" : "In Stock"}</p>
-            <span className="cart-edit">
+            <div className="cart-edit">
               <div>
                 <Button disabled={cartQuantity <= 1} onClick={() => changeQuantity(cartQuantity - 1)}>
                   -
                 </Button>
-                &nbsp;
-                <div>{props.cart_quantity}</div>
-                &nbsp;
-
+                <div className="cart-quantity">{props.cart_quantity}</div>
                 <Button disabled={cartQuantity >= props.product_quantity} onClick={() => changeQuantity(cartQuantity + 1)}>
                   +
                 </Button>
@@ -50,7 +47,7 @@ function ProductInCart(props) {
               <Button type="primary" danger onClick={() => changeQuantity(0)}>
                 <strong>Remove</strong>
               </Button>
-            </span>
+            </div>
           </span>
         </div>
       </Card>

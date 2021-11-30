@@ -1,7 +1,7 @@
 import ProductInCart from "./ProductInCart";
 import "./cart.scss";
 import axios from "axios";
-import { notification } from "antd";
+import { Button, notification } from "antd";
 import StripeCheckout from "react-stripe-checkout";
 import EmptyCart from "./EmptyCart";
 
@@ -52,16 +52,19 @@ function Cart(props) {
 
           <div className="cart-total">
             <h3>
-              Subtotal({props.itemsCount} items):${props.subtotal}
+              Subtotal ({props.itemsCount} items):${props.subtotal}
             </h3>
-            <br />
               <StripeCheckout
                 stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                 token={handleToken}
                 shippingAddress
                 billingAddress
                 amount={props.subtotal * 100}
-              />
+                
+              >
+              <button style={{fontFamily: "'Spartan', sans-serif"}} className="btn btn-primary">
+              Checkout
+            </button></StripeCheckout>
           </div>
         </div>
       )}

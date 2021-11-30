@@ -1,11 +1,3 @@
-INSERT INTO usertypes (id, usertype_desc)
-VALUES (1, 'Admin'),
-(2, 'Guest');
-
-INSERT INTO users (email, password, usertype_id)
-VALUES ('admin1@gmail.com', 'admin1', 1);
-
-
 INSERT INTO products (name, price, quantity, thumbnail_photo_url, description, category, number_of_ratings, avg_rating)
 VALUES ('Sky Branches-Birch Trees Wall Art', 109.99, 5, 'https://image.s5a.com/is/image/TheBay/628840006978_main?wid=984&hei=1312&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0', 'Iconic birch trees serve as the essence in this stunning giclee landscape reproduction. Muted and magnificently executed, the conventional, earthy palette is a stroke of genius artwork by Irina K stretched on solid MDF bars.', 'Paintings', 500, 4.2),
 ('Turquoise Water And Sunny Beams', 59.99, 67, 'https://i5.walmartimages.ca/images/Enlarge/121/400/999999-641393121400.jpg', 'This canvas art is printed on the highest quality cotton canvas and gallery wrapped (design continues on the side) around a solid 1 inch wood subframe. We only use the finest quality ink jet printers according to the giclée process and highest resolution images when making our canvas prints to ensure that you receive a rich, flawless ,un-pixelated piece of artwork everytime. ', 'Paintings', 20, 3.1),
@@ -33,7 +25,3 @@ A great gifts ideal for Valentines Day, Christmas, New Year, business gift and o
 ('Madison™ Black Pine Christmas Tree', 59.95, 43, 'https://i5.walmartimages.ca/images/Enlarge/702/322/6000203702322.jpg', 'The 6.5-ft Pre-Lit Madison Pine is the perfect solution for a non-traditional holiday decorating. This unique artificial Christmas tree features 600 ebony branch tips, 400 pre-strung mini clear lights that remain lit even if one burns out, and a convenient tree stand.', 'Decorations', 27, 2.2);
 ('Costway 6ft Artificial Christmas Tree', 129.95, 76, 'https://i5.walmartimages.com/asr/704275db-4218-4389-b2c6-d6bacafebb1c_1.32ad55e5733b4506a443f3da91a70542.jpeg', 'This is our brand new 6ft artificial Christmas tree which is made of eco-friendly and non-flammable PVC material to provide you with long-term quality service. The unique and distinctive pink tree is guaranteed to be an eye-catcher in any place to bring out romantic atmosphere. Simple style allows you to decorate it freely with Christmas stockings, colored balls, lights or other ornaments according to your own preferences. It is effortless to make the tree fluff due to its hinged construction, while also facilitating its assemble and storage.', 'Decorations', 52, 3.9);
 ('Twinkle Lights for Bedroom Fairy Lights ', 35.95, 53, 'https://m.media-amazon.com/images/I/712plC8xCEL._AC_SL1150_.jpg', 'Lighting up your nights. Total 12 LED star shape string lights, creating bright charming sight and a warm atmosphere for you. Plus, 8.2ft lead wire, more flexible to decorated on the curtain, window, floors, ceilings, balcony, corridors, patio, trees or other places. With memorable controller, the lighting mode will not change after unplugged.Great for Festivals, Holiday, Wedding, Christmas, Parties, Home Decor and more to create a brilliant visual effect.', 'Lightings', 437, 4.2);
-
-INSERT INTO reviews (product_id, username, comment, rating)
-VALUES (2, 'Harry Potter', 'Great Product', 4), (1, 'Hermione Granger', 'Loved using it', 4.5), (2, 'Rachel Greene','Superb jacket... I just loved its color and also its super comfy...', 4.5), (1, 'Ronald Weasley','Looks great', 4.2), (3, 'Mike Ross','Not so good..It doesnot look great as in the picture', 2), (3, 'Harvey Spector','It is good but not worth the price', 3.2), (5, 'Donna Cooper','Too small in size', 3.4), (2, 'Jon Snow','Material is not so good', 2.1), (2, 'Robb Stark','Nice fit', 4), (4, 'Arya Stark', 'Loved the doormat', 4.9), (2, 'Michael Scott','Gives me the perfect winter look', 4.6), (3, 'Raj Sharma','Good product', 2.3), (5, 'John Doe','Super great pattern', 4.2);
-

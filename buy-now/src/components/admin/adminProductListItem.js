@@ -4,6 +4,8 @@ import { useState } from "react";
 import EditProductForm from "./EditProductForm";
 import DeleteProductForm from "./DeleteProductForm";
 
+import "./admin-product-list.scss"
+
 
 function AdminProductListItem(props) {
   const id = props.id;
@@ -37,7 +39,7 @@ function AdminProductListItem(props) {
         <div className="price-tag">${props.price}</div>
         <div>Stock: {props.quantity}</div>
         </div>
-        <div>
+        <div className="display-flex">
           <Button type="primary" onClick={showEditModal}>
             Edit
           </Button>
@@ -47,6 +49,7 @@ function AdminProductListItem(props) {
             setIsEditModalVisible={setIsEditModalVisible}
             fetchProducts={props.fetchProducts}
           />
+          &nbsp;&nbsp;
           <Button type="primary" onClick={showDeleteModal}>
             Delete
           </Button>

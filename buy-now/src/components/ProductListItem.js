@@ -6,7 +6,7 @@ function ProductListItem(props) {
   const id = props.id;
 
   return (
-    <Card className="product-card" style={{ width: 300 }}>
+    <div className="product-card-contents" style={{ width: 300 }}>
       <Link to={"/details/" + id}>
         <img
           height="200px"
@@ -31,7 +31,7 @@ function ProductListItem(props) {
         <div>
           <div className="price-count">
             <div className="price-tag">${props.price}</div>
-            <p>{props.Quantity < 1 ? "Out of Stock" : "In Stock"}</p>
+            <div>{props.Quantity < 1 ? "Out of Stock" : "In Stock"}</div>
           </div>
           <Button onClick={() => props.addToCart(props.id)}>
             {props.added(props.id, props.cart)}
@@ -39,7 +39,7 @@ function ProductListItem(props) {
         </div>
       </span>
       <div></div>
-    </Card>
+    </div>
   );
 }
 

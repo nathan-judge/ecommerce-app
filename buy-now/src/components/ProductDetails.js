@@ -1,4 +1,4 @@
-import { Form, Input, Button, Rate } from "antd";
+import { Form, Input, Button, Rate, Modal } from "antd";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -58,6 +58,9 @@ function ProductDetails(props) {
   return (
     <div>
       <div className="product-details-container">
+        <h2>Product Details</h2>
+        <br />
+        <br />
         <div className="product-details">
           <img
             height="200px"
@@ -80,7 +83,7 @@ function ProductDetails(props) {
               <span className="price-tag">${product.price}</span>
             </div>
             <br />
-            <div style={{display: "flex"}}>
+            <div style={{ display: "flex" }}>
               <Button onClick={() => props.addToCart(product.id)}>
                 {props.added(product.id, props.cart)}
               </Button>
@@ -96,11 +99,16 @@ function ProductDetails(props) {
         </div>
         <br />
         <br />
-        {showReviewForm && (
+        <Modal
+          visible={showReviewForm}
+          title="Add Review"
+          onCancel={() => setShowReviewForm(false)}
+          footer={false}
+        >
           <Form
             onFinish={onFinish}
             labelCol={{
-              span: 2
+              span: 4
             }}
             onFinishFailed={onFinishFailed}
           >
@@ -140,11 +148,8 @@ function ProductDetails(props) {
             >
               <TextArea showCount maxLength={300} />
             </Form.Item>
-            <Form.Item wrapperCol={{ offset: 2 }}>
-              <Button
-                htmlType="submit"
-                type="primary"
-              >
+            <Form.Item wrapperCol={{ offset: 4 }}>
+              <Button htmlType="submit" type="primary">
                 Submit
               </Button>{" "}
               &nbsp;
@@ -153,7 +158,7 @@ function ProductDetails(props) {
               </Button>
             </Form.Item>
           </Form>
-        )}
+        </Modal>
         {product.id && (
           <div className="reviews-box">
             <Reviews reviews={reviews} />
