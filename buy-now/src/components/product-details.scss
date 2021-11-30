@@ -1,23 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
-.product-details {
-  margin: 10rem 8rem 0 8rem;
-  border: 2px solid black;
+@import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
+.product-details-container {
+  margin: 5rem 6rem 0 6rem;
+  // border: 2px solid black;
   padding: 4rem;
 }
 .product-details {
   display: flex;
   justify-content: flex-start;
-  font-family: 'Spartan', sans-serif;
+  font-family: "Spartan", sans-serif;
 }
 .price-tag {
-    background: inherit;
-    font-size: 22px;
-    font-family: 'Spartan', sans-serif;
-  
+  background: inherit;
+  font-size: 22px;
+  font-family: "Spartan", sans-serif;
 }
-.reviews-box{
-  margin: 0 8rem !important;
-}
-.product-info{
+.product-info {
   margin-left: 40px;
 }

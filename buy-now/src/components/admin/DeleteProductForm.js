@@ -1,6 +1,6 @@
-import { Button, Form, Input, Modal } from "antd";
+import { Button, Form, Modal } from "antd";
 import axios from "axios";
-const { TextArea } = Input;
+
 
 const DeleteProductForm = (props) => {
   const id = props.product.id;

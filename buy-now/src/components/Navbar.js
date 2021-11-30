@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./nav.scss";
 
 function Navbar(props) {
-  // const { cart } = props
   return (
     <div className="nav-bar">
       <Link to="/home">

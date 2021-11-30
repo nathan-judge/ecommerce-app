@@ -69,7 +69,7 @@
             "opacity": 0.8
           }
         },
-        "font":"'Roboto', sans-serif"
+        "font":""
       },
       "Halloween" : {
         "id": "T_004",
@@ -93,7 +93,7 @@
             "opacity": 0.8
           }
         },
-        "font":"'Roboto', sans-serif"
+        "font":""
       },
       "Canada" : {
         "id": "T_005",
@@ -116,7 +116,7 @@
             "opacity": 0.8
           }
         },
-        "font":"'Roboto', sans-serif"
+        "font":""
       }
     }
   }

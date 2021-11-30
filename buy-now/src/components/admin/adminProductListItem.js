@@ -1,14 +1,17 @@
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import EditPoductList from "./EditProductList";
-import DeleteProductForm from "./DeleteProduct";
-import axios from "axios";
+import EditProductForm from "./EditProductForm";
+import DeleteProductForm from "./DeleteProductForm";
+
+import "./admin-product-list.scss"
+
 
 function AdminProductListItem(props) {
   const id = props.id;
   const [isEditModalVisible, setIsEditModalVisible] = useState(false);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+  
 
   const showEditModal = () => {
     setIsEditModalVisible(true);
@@ -16,13 +19,7 @@ function AdminProductListItem(props) {
   const showDeleteModal = () => {
     setIsDeleteModalVisible(true);
   };
-  console.log("props is: ", props);
-  console.log("props.image is: ", props.image);
-
-  // const deleteProduct = async () => {
-
-  // };
-
+  
   return (
     <div className="product-card-contents">
       <Link to={"/details/" + id}>
@@ -38,17 +35,21 @@ function AdminProductListItem(props) {
         </Link>
       </div>
       <div className="price-count">
+        <div className="stock-price" >
         <div className="price-tag">${props.price}</div>
-        <div>
+        <div>Stock: {props.quantity}</div>
+        </div>
+        <div className="display-flex">
           <Button type="primary" onClick={showEditModal}>
             Edit
           </Button>
-          <EditPoductList
+          <EditProductForm
             product={props.product}
             isEditModalVisible={isEditModalVisible}
             setIsEditModalVisible={setIsEditModalVisible}
             fetchProducts={props.fetchProducts}
           />
+          &nbsp;&nbsp;
           <Button type="primary" onClick={showDeleteModal}>
             Delete
           </Button>

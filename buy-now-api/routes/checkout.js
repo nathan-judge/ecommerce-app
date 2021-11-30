@@ -5,10 +5,8 @@ const { v4: uuid } = require('uuid');
 module.exports = (db) => {
 
   router.post("/", async (req, res) => {
-    console.log("Request:", req.body);
     try {
       const { cart, token, subtotal } = req.body;
-      console.log("ORDERED CART", cart)
   
       const customer = await stripe.customers.create({
         email: token.email,
@@ -36,7 +34,20 @@ module.exports = (db) => {
           idempotencyKey: uuid()
         }
       );
-      console.log("Charge:", { charge });
+      for (const product of cart) {
+        let newQuantity = product.quantity - product.number_of_items;
+        if(newQuantity < 0){
+          newQuantity = 0
+        }
+        await db.query(`UPDATE products SET quantity = $1 WHERE id =  $2`, [newQuantity, product.product_id])
+      }
+      await db.query(
+        `UPDATE carts 
+        SET order_placed = true 
+        WHERE carts.id = $1;`,
+        [req.body.cart_id]
+      );
+  
       res.status(200).send({success: true})
     } catch (error) {
       console.error("Error:", error);
