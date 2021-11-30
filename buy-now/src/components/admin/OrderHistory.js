@@ -1,7 +1,7 @@
 import { Card } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import "./admin-product-list.scss";
 
 function OrderHistory(props) {
 const [count, setCount] = useState(0)

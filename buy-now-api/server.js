@@ -24,14 +24,13 @@ db.connect();
 //Mount all the routes
 const productsRoutes = require("./routes/products");
 app.use("/api/products", productsRoutes(db));
-console.log("hello1")
+
 
 const productRoutes = require("./routes/product_details");
 app.use("/api/product", productRoutes(db));
 
 const userRoutes = require("./routes/user");
 app.use("/api/users", userRoutes(db));
-console.log("hellouser")
 
 const cartRoutes = require("./routes/cart");
 app.use("/api/cart", cartRoutes(db));

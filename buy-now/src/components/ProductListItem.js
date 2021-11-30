@@ -1,4 +1,4 @@
-import { Card, Button, Rate } from "antd";
+import { Button, Rate } from "antd";
 import { Link } from "react-router-dom";
 import "./product-list.scss";
 
