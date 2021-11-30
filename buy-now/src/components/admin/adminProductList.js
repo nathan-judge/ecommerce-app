@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import React from "react";
 import AdminProductListItem from "./AdminProductListItem";
 
@@ -7,7 +7,7 @@ function AdminProductList(props) {
 
   return (
     <main>
-      <div className="list">
+      <div style={{paddingTop: 0}} className="list">
         {props.products.map((product, key) => {
           return (
             <AdminProductListItem

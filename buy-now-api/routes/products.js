@@ -15,7 +15,7 @@ module.exports = (db) => {
     try {
       const data = await db.query(
         `SELECT * FROM products
-                                   WHERE LOWER(name) LIKE '%'||$1||'%';`,
+         WHERE LOWER(name) LIKE '%'||$1||'%';`,
         [req.query.term]
       );
       const products = data.rows;

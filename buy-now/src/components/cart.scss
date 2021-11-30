@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
 .cart {
   padding: 130px 8em;
-  font-family: 'Spartan', sans-serif;
+  font-family: "Spartan", sans-serif;
   & h3 {
     font-weight: bolder;
   }
@@ -24,12 +24,18 @@
 
 .cart-edit {
   display: flex;
+  align-items: center;
   & div {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 }
-
-.StripeCheckout{
-  margin-bottom:44px;
+.cart-quantity {
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.StripeCheckout {
+  margin-bottom: 44px;
 }

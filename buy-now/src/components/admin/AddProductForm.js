@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-import { Button, Form, Input, Modal } from "antd";
+import { Button, Form, Input, Modal, Tooltip } from "antd";
 import axios from "axios";
+import { PlusSquareFilled } from '@ant-design/icons';
+
 const { TextArea } = Input;
 
 const AddProductForm = (props) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
 
   const showModal = () => {
-    setIsModalVisible(true);
+    setIsAddModalVisible(true);
   };
 
   const onFinish = async (values) => {
@@ -22,7 +24,7 @@ const AddProductForm = (props) => {
         description: values.product.description,
         category: values.product.category
       });
-      setIsModalVisible(false);
+      setIsAddModalVisible(false);
       props.fetchProducts()
     } catch (e) {
       console.log("Error adding product", e);
@@ -34,13 +36,16 @@ const AddProductForm = (props) => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
-        Add Product
-      </Button>
+      <div style={{position: "fixed", bottom: 15, left: 15}}>
+      <Tooltip title="Add Product">
+      <Button style={{fontSize: "50px", borderRadius: "100%", height: "50px", display: "flex", alignItems: "center", justifyContent: "center", width: "50px", paddingTop: 15, backgroundColor: "#1890ff", color: "#fff", borderColor: "#1890ff"}}  type="link" onClick={showModal}>+</Button>
+    </Tooltip>
+    </div>
       <Modal
         title="Add Product"
-        visible={isModalVisible}
+        visible={isAddModalVisible}
         footer={false}
+        onCancel={() => setIsAddModalVisible(false)}
       >
         <Form
           onFinish={onFinish}
@@ -132,7 +137,7 @@ const AddProductForm = (props) => {
               Submit
             </Button>{" "}
             &nbsp;
-            <Button type="default" onClick={() => setIsModalVisible(false)}>
+            <Button type="default" onClick={() => setIsAddModalVisible(false)}>
               Cancel
             </Button>
           </Form.Item>

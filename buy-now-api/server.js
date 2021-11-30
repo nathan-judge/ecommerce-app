@@ -2,13 +2,10 @@ require("dotenv").config();
 
 const express = require('express')
 const bodyParser = require('body-parser')
-// const {addUser} = require('./db')
 const app = express()
 const port = 3545
 
 //bodyParser middleware
-
-
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -23,13 +20,6 @@ const dbParams = require("./db.js");
 const db = new Pool(dbParams);
 db.connect();
 
-app.get("/test", (req, res) => {
-  const user = {
-    name: "Harry"
-  }
-
-  addUser(user)
-})
 
 //Mount all the routes
 const productsRoutes = require("./routes/products");
@@ -57,8 +47,7 @@ const adminRoutes = require("./routes/admin")
 app.use("/api/admin", adminRoutes(db))
 
 app.get('/', (req, res) => {
-  console.log("testget")
-  res.send('sup')
+  res.send('Buynow')
 })
 
 app.listen(port, () => {

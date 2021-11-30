@@ -1,51 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
-.list{
+@import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
+.list {
   padding-top: 120px;
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: center;
-  font-family: 'Spartan', sans-serif;
-
+  font-family: "Spartan", sans-serif;
 }
 .product-detail {
   text-align: center;
 }
 .price-tag {
-  border: 1px solid black;
-  background:black;
-  padding:0.5em;
+  border: none;
+  background: black;
 }
 .price-count {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.ant-card{
+.ant-card {
   margin: 20px !important;
 }
-.ant-card-body{
+.ant-card-body {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.product-card-contents{
+.product-card-contents {
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 1.5em;
   padding: 2.5em;
+  border-radius: 5px !important;
+  -webkit-box-shadow: -2px 2px 53px -34px rgba(0,0,0,0.44);
+  -moz-box-shadow: -2px 2px 53px -34px rgba(0,0,0,0.44);
+  box-shadow: -2px 2px 53px -34px rgba(0,0,0,0.44);
+
 }
-a{
+.product-card-contents:hover {
+  -webkit-box-shadow: -2px 2px 53px -23px rgba(0,0,0,0.45);
+  -moz-box-shadow: -2px 2px 53px -23px rgba(0,0,0,0.45);
+  box-shadow: -2px 2px 53px -23px rgba(0,0,0,0.45);
+  transition: .3s;
+}
+a {
   display: flex;
   justify-content: center;
 }
 .price-tag {
-  border: 1px solid transparent;
+  border: none;
   background: inherit;
-  padding: 0.5em;
   font-size: 22px;
 }
-.product-name{
-  font-family: 'Spartan', sans-serif;
+.product-name {
+  font-family: "Spartan", sans-serif;
   font-size: 20px;
   padding-top: 0.5em;
 }

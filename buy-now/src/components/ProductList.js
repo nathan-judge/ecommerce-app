@@ -1,4 +1,3 @@
-
 import React from "react";
 import ProductListItem from "./ProductListItem";
 import "./product-list.scss"
@@ -7,8 +6,6 @@ import "./product-list.scss"
 
 export default function ProductList(props) {
   
-  
-
   return (
     <main>
       <div className="list">

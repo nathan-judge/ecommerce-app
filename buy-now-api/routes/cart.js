@@ -8,7 +8,7 @@ module.exports = (db) => {
     }
     try {
       const data = await db.query(
-        `SELECT * FROM carts JOIN products
+        `SELECT carts.*, products.price, products.quantity, products.thumbnail_photo_url,products.description, products.category, products.number_of_ratings, products.avg_rating, products.name FROM carts JOIN products
        ON product_id = products.id
        WHERE carts.id = $1 order by products.name;`,
         [req.params.cartId]
@@ -21,7 +21,6 @@ module.exports = (db) => {
   });
   router.post("/:cartId", async (req, res) => {
     try {
-      console.log("POST CART", req.body);
       if (
         req.body.number_of_items === null ||
         req.body.number_of_items === undefined
