@@ -1,7 +1,7 @@
 import ProductInCart from "./ProductInCart";
 import "./cart.scss";
 import axios from "axios";
-import { Button, notification } from "antd";
+import { notification } from "antd";
 import StripeCheckout from "react-stripe-checkout";
 import EmptyCart from "./EmptyCart";
 

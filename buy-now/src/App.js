@@ -8,7 +8,7 @@ import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import ProductDetails from "./components/ProductDetails";
-import helpers from "./helpers/cartSubtotal";
+import helpers from "./helpers/helpers";
 import styled, { ThemeProvider } from "styled-components";
 import WebFont from "webfontloader";
 import { GlobalStyles } from "./theme/GlobalStyles";
@@ -47,21 +47,13 @@ function App() {
     });
   });
 
-  const added = (productId) => {
-    for (const product of cart) {
-      if (product.product_id === productId) {
-        return "Added to Cart";
-      }
-    }
-    return "Add to Cart";
-  };
+  
   const fetchCart = async () => {
     try {
       const cartId = localStorage.getItem("cart_id");
       const url = "/api/cart/" + cartId;
       const res = await axios.get(url);
 
-      console.log("pppp", res.data);
       let newCart = res.data.cart;
       setCart(newCart);
       const cartCountAndTotal = helpers.cartSubtotal(newCart);
@@ -83,15 +75,12 @@ function App() {
     try {
       const cartId = localStorage.getItem("cart_id");
 
-      console.log("cartId :", cartId);
-
       const url = "/api/cart/" + cartId;
-      console.log("before aci", productId);
       const res = await axios.post(url, {
         product_id: productId,
         cart_id: cartId
       });
-      console.log("pppp", res.data);
+      
       if (!cartId) {
         localStorage.setItem("cart_id", res.data.cart_id);
       }
@@ -105,7 +94,6 @@ function App() {
     try {
       const response = await axios.get("api/products/search?term=" + value);
       let productToShow = response.data.products;
-      console.log("productstoshow", productToShow);
       setProducts(productToShow);
     } catch (e) {
       console.log("Error searching the product", e);
@@ -117,12 +105,10 @@ function App() {
       "Welcome to BuyNow! Try out our AI and make a product query (i.e. Is (item) in stock?) Otherwise, feel free to send a message here, our customer service will respond shortly!"
     );
     socket.on("receive-message", (message) => {
-      console.log("MESSAGE IS: ", message);
       addResponseMessage(message);
     });
   }, []);
   const handleNewUserMessage = (newMessage) => {
-    console.log(`New message incoming! ${newMessage}`);
     //to send message use 'emit' emit will emit messages including themselves (broadcast doesn't include themselves)
     socket.emit("send-message", newMessage);
     //to listen for messages use 'on'
@@ -138,8 +124,6 @@ function App() {
       {themeLoaded && (
         <ThemeProvider theme={selectedTheme}>
           <GlobalStyles />
-
-          {/* <ThemeSelector setter={setSelectedTheme} /> */}
           <BrowserRouter>
             <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
             <Routes>
@@ -150,7 +134,7 @@ function App() {
                     products={products}
                     fetchCart={fetchCart}
                     cart={cart}
-                    added={added}
+                    added={helpers.added}
                     addToCart={addToCart}
                   />
                 }
@@ -162,7 +146,7 @@ function App() {
                     products={products}
                     fetchCart={fetchCart}
                     cart={cart}
-                    added={added}
+                    added={helpers.added}
                     addToCart={addToCart}
                   />
                 }
@@ -187,7 +171,7 @@ function App() {
                 path="/details/:id"
                 element={
                   <ProductDetails
-                    added={added}
+                    added={helpers.added}
                     addToCart={addToCart}
                     cart={cart}
                   />

@@ -9,10 +9,10 @@ function Navbar(props) {
       <Link to="/home">
         <h1 className="nav-title">BuyNow!</h1>
       </Link>
-        <Searchbar
-          searchProduct={props.searchProduct}
-          cartTotal={props.cartTotal}
-        />
+      <Searchbar
+        searchProduct={props.searchProduct}
+        cartTotal={props.cartTotal}
+      />
     </div>
   );
 }

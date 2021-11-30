@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import "./cart.scss"
+import "./cart.scss";
 function EmptyCart() {
   return (
-  <h2>
-       <Link to="/home">Your cart is empty. Please click here.</Link>
-       </h2>
+    <h2>
+      <Link to="/home">Your cart is empty. Please click here.</Link>
+    </h2>
   );
 }
-export default EmptyCart
+export default EmptyCart;

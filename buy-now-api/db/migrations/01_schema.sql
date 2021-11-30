@@ -40,8 +40,14 @@ CREATE TABLE reviews (
   comment TEXT,
   rating DECIMAL,
   created_at TIMESTAMP DEFAULT current_timestamp
-)
+);
 
+CREATE TABLE carts (
+  id VARCHAR(255) NOT NULL,
+  product_id INTEGER REFERENCES products(id),
+  number_of_items INTEGER NOT NULL DEFAULT 0,
+  order_placed BOOLEAN DEFAULT false
+);
 
 
 
