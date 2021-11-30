@@ -16,6 +16,8 @@ import { useTheme } from "./theme/useTheme";
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import { io } from "socket.io-client";
+import useAlan from "./hooks/useAlan"
+
 const socket = io("http://localhost:8000");
 
 function App() {
@@ -28,6 +30,9 @@ function App() {
   const [subtotal, setSubtotal] = useState(0);
   const { theme, themeLoaded, getFonts } = useTheme();
   const [selectedTheme, setSelectedTheme] = useState(theme);
+
+  useAlan()
+
 
   useEffect(() => {
     setSelectedTheme(theme);
