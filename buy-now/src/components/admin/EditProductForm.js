@@ -1,5 +1,5 @@
 import { Button, Form, Input, Modal } from "antd";
-import axios from "axios";
+import apiHelpers from "../../helpers/apiHelpers";
 const { TextArea } = Input;
 
 const EditProductForm = (props) => {
@@ -8,7 +8,7 @@ const EditProductForm = (props) => {
   const onFinish = async (values) => {
     
     try {
-      await axios.post("/api/admin/edit_product/" + id, {
+      await apiHelpers.editProduct(id,{
         name: values.product.name,
         price: values.product.price,
         quantity: values.product.quantity,
@@ -21,9 +21,6 @@ const EditProductForm = (props) => {
     } catch (e) {
       console.log("Error updating product", e);
     }
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -42,7 +39,7 @@ const EditProductForm = (props) => {
           labelCol={{
             span: 5
           }}
-          onFinishFailed={onFinishFailed}
+          
         >
           <Form.Item
             label="Name"

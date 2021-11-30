@@ -1,16 +1,14 @@
 import { Card, Button } from "antd";
-import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import apiHelpers from "../helpers/apiHelpers";
 
 function ProductInCart(props) {
   const [cartQuantity, setCartQuantity] = useState(props.cart_quantity);
 
   const changeQuantity = async (newQuantity) => {
     try {
-      const cartId = localStorage.getItem("cart_id");
-      await axios.post("/api/cart/" + cartId, {
-        cart_id: cartId,
+      await apiHelpers.updateCart({
         product_id: props.product_id,
         number_of_items: newQuantity
       });
@@ -34,14 +32,19 @@ function ProductInCart(props) {
             <p>{props.product_quantity < 1 ? "Out of Stock" : "In Stock"}</p>
             <div className="cart-edit">
               <div>
-                <Button disabled={cartQuantity <= 1} onClick={() => changeQuantity(cartQuantity - 1)}>
+                <Button
+                  disabled={cartQuantity <= 1}
+                  onClick={() => changeQuantity(cartQuantity - 1)}
+                >
                   -
                 </Button>
                 <div className="cart-quantity">{props.cart_quantity}</div>
-                <Button disabled={cartQuantity >= props.product_quantity} onClick={() => changeQuantity(cartQuantity + 1)}>
+                <Button
+                  disabled={cartQuantity >= props.product_quantity}
+                  onClick={() => changeQuantity(cartQuantity + 1)}
+                >
                   +
                 </Button>
-                
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Button type="primary" danger onClick={() => changeQuantity(0)}>
