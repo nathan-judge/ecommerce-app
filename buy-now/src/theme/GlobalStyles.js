@@ -27,10 +27,21 @@ export const GlobalStyles = createGlobalStyle`
         align-items: center;
         color: black;
   }
+  .ant-form-item-label > label{
+    color: ${({ theme }) => theme.colors.text};
+}
+.backAdmin{
+  margin-top: 8em;
+}
+.admintitle{
+  color: ${({ theme }) => theme.colors.text};
+}
+.changeTheme{
+  color: ${({ theme }) => theme.colors.text};
+}
   .nav-title {
 	color: ${({ theme }) => theme.colors.navTitle};
-    font-family: ${({ theme }) => theme.font};
-	padding: 0.5em;
+
 }
 .ant-icon{
     color: ${({ theme }) => theme.colors.navTitle};
@@ -57,7 +68,14 @@ a{
     font-family: ${({ theme }) => theme.font};
   }
 .cart-product-detail{
-    color: ${({ theme }) => theme.colors.navTitle};
+  color: ${({ theme }) => theme.colors.text};
+}
+.product-details {
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.navbar};
+}
+.product-details h3{
+  color: ${({ theme }) => theme.colors.text};
 }
 .AddCartBtn {
    background-color: ${({ theme }) => theme.colors.checkoutback};
@@ -70,9 +88,9 @@ a{
   border: 1px solid ${({ theme }) => theme.colors.checkout};
   font-family: 'Spartan', sans-serif;
  }
- .ant=btn:hover{
-   color:blue;
- }
+ .cart-product-detail {
+  color: ${({ theme }) => theme.colors.text};
+}
  .product-card-contents{
     background-color: ${({ theme }) => theme.colors.navbar};
     display: flex;

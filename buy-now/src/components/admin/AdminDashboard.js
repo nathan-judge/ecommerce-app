@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form, Input, Radio } from 'antd';
 import axios from 'axios';
+import "./form.scss"
+import { Link } from 'react-router-dom';
 const {TextArea} = Input
 //CREATE PRODUCT FORM
 const addProductForm = () => {
@@ -27,7 +29,13 @@ const addProductForm = () => {
 
   return (
     
-  
+  <div>
+<div className="dashheader">
+  <h1 className="admintitle">Admin Dashboard</h1>
+  <Link to="/theme">
+        <h1 className="changeTheme">Theme Selector</h1>
+      </Link>
+</div>
       <Form
             onFinish={onFinish}
             labelCol={{
@@ -130,19 +138,19 @@ const addProductForm = () => {
               </Button>
             </Form.Item>
       </Form>      
-    
+      </div>
   );
 };
 export default addProductForm
 
-function AdminDashboard() {
-    return (
-      <div className="AdminDashboard">
-      <h1 style={{ paddingTop: 100 }}>ADMIN DASHBOARD</h1>
+// function AdminDashboard() {
+//     return (
+//       <div className="AdminDashboard">
+//       <h1 style={{ paddingTop: 100 }}>ADMIN DASHBOARD</h1>
       
-    <addProductForm />
+//     <addProductForm />
        
-      </div>
-    );
-  }
+//       </div>
+//     );
+//   }
   

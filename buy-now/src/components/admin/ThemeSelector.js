@@ -3,6 +3,8 @@ import styled from "styled-components";
 import _ from 'lodash';
 import {useTheme} from '../../theme/useTheme';
 import { getFromLS } from '../../utils/storage';
+import { Link } from "react-router-dom";
+import "./theme.scss"
 
 const ThemedButton = styled.button`
     border: 0;
@@ -22,7 +24,7 @@ const Container = styled.ul`
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(5, 1fr);
-    margin-top: 3rem;
+    margin-top: 2rem;
     padding: 10px;
 `;
 
@@ -61,21 +63,37 @@ export default (props) => {
                 <ThemedButton onClick={ (theme) => themeSwitcher(props.theme) }>
                 {props.theme.name}
                 </ThemedButton>
-         
+            
+      
         )
     }
 
     return (
         <div>
-            
+            <div>
+            <Link to="/admin">
+            <h1 className="admintitle">Admin Dashboard</h1>
+      </Link>
+            </div>
             <Container>
             {
                 themes.length > 0 && 
                     themes.map(theme =>(
                         <ThemeCard theme={data[theme]} key={data[theme].id} />
+                        
                     ))
+                    
             }
             </Container>
+            <div className="preview">
+            <img src="https://www.macmillandictionary.com/external/slideshow/full/White_full.png"/>
+            <img src="https://wallpapercave.com/wp/uSr9bZA.jpg"/>
+            <img src="https://livestartpage.com/gallery/themes/c1e217cdc8846e4cf68861d2e3f6c915/poster.png"/>
+            <img src="https://cdn.pixabay.com/photo/2020/09/23/19/58/halloween-5596921__340.jpg"/>
+            <img src="https://media.istockphoto.com/vectors/canadian-maple-leaf-symbol-seamless-pattern-illustration-vector-id947975882?k=20&m=947975882&s=612x612&w=0&h=YcP-3-aDpeSEjXJRhhuKzjf1Trj53mqG3jqTw8z7S5Q="/>
+           
+            </div>
+
         </div>
     )
 }

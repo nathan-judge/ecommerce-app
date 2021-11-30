@@ -9,6 +9,7 @@
           "body": "#FFFFFF",
           "text": "#000000",
           "backitem":"#40404280",
+          "navTitle":"white",
           "checkout":"black",
           "checkoutback":"rgba(255, 255, 255, 0.1);,",
           "button": {

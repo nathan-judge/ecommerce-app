@@ -115,7 +115,7 @@ return (
     themeLoaded && <ThemeProvider theme={ selectedTheme }>
       <GlobalStyles/>
       <Container style={{fontFamily: selectedTheme.font}}>
-      <ThemeSelector setter={ setSelectedTheme }/>
+     
       <BrowserRouter>
       <Navbar cartTotal={cart.length} searchProduct={searchProduct} />
       <Routes>
@@ -144,7 +144,9 @@ return (
           }
         />
         <Route path="/admin" element={<AdminDashboard products={products}/>} />
+        <Route path="/theme" element={ <ThemeSelector setter={ setSelectedTheme }/>} />
         <Route
+        
           path="/details/:id"
           element={
             <ProductDetails added={added} addToCart={addToCart} cart={cart} />

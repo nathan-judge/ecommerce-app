@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
 .cart {
   padding: 0 8em;
+  margin-top: 10em;
   font-family: 'Spartan', sans-serif;
   & h3 {
     font-weight: bolder;
@@ -33,4 +34,7 @@
 
 .StripeCheckout{
   margin-bottom:44px;
+}
+.cart-product-detail{
+  color: black;
 }

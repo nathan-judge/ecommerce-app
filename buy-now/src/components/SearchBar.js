@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./search.scss";
-import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Badge } from "antd";
 // import axios from "axios";
