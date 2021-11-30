@@ -32,8 +32,20 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.font};
 	padding: 0.5em;
 }
+.price-count{
+  color: ${({ theme }) => theme.colors.text};
+}
+.title-details{
+  color: ${({ theme }) => theme.colors.text};
+}
 .ant-icon{
     color: ${({ theme }) => theme.colors.navTitle};
+}
+.admin-dashboard h1{
+  color: ${({ theme }) => theme.colors.text};
+}
+.product-info h3{
+  color: ${({ theme }) => theme.colors.text};
 }
 a{
   color: ${({ theme }) => theme.colors.text};
@@ -95,6 +107,13 @@ a{
     background-color: ${({ theme }) => theme.colors.button.background};
     color: ${({ theme }) => theme.colors.button.text};
   }
-  
+  .nav-title{
+    padding-top: 1.1em;
+    padding-left: 1em;
+}
+  .product-title{
+    color: ${({ theme }) => theme.colors.text};
+    padding-top:0.5em;
+  }
   
 `;

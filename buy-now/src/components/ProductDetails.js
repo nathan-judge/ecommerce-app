@@ -58,7 +58,7 @@ function ProductDetails(props) {
   return (
     <div>
       <div className="product-details-container">
-        <h2>Product Details</h2>
+        <h2 className="title-details">Product Details</h2>
         <br />
         <br />
         <div className="product-details">

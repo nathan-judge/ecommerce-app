@@ -16,7 +16,7 @@ function ProductListItem(props) {
       </Link>
       <span className="product-detail">
         <Link to={"/details/" + id}>
-          <h3>{props.name}</h3>
+          <h3 className="product-title">{props.name}</h3>
         </Link>
         <div>
           <Rate
