@@ -6,7 +6,7 @@ const EditProductForm = (props) => {
   const id = props.product.id;
 
   const onFinish = async (values) => {
-    console.log("Success:", values.product);
+    
     try {
       await axios.post("/api/admin/edit_product/" + id, {
         name: values.product.name,
@@ -66,7 +66,7 @@ const EditProductForm = (props) => {
               }
             ]}
           >
-            <TextArea showCount maxLength={300} />
+            <TextArea showCount maxLength={500} />
           </Form.Item>
           <Form.Item
             label="quantity"

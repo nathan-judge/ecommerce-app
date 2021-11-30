@@ -7,5 +7,15 @@ const cartSubtotal = (carts) => {
   }
   return {amount: totalAmount, count: totalItems}
 }
-const modules = {cartSubtotal}
+
+const added = (productId, cart) => {
+  for (const product of cart) {
+    if (product.product_id === productId) {
+      return "Added to Cart";
+    }
+  }
+  return "Add to Cart";
+};
+
+const modules = {cartSubtotal, added}
 export default modules;

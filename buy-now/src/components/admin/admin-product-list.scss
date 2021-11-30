@@ -1,3 +1,11 @@
+.admin-list {
+  padding-top: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  font-family: "Spartan", sans-serif;
+}
+
 .admin-dashboard {
 color:darkslategray;
 }
@@ -9,3 +17,4 @@ color:darkslategray;
   align-items: center;
   font-size: 16px;
 }
+

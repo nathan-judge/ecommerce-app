@@ -1,13 +1,10 @@
-
 import React from "react";
 import AdminProductListItem from "./AdminProductListItem";
 
 function AdminProductList(props) {
-  console.log("props :", props);
-
   return (
     <main>
-      <div style={{paddingTop: 0}} className="list">
+      <div className="admin-list">
         {props.products.map((product, key) => {
           return (
             <AdminProductListItem

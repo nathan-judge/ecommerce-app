@@ -10,7 +10,7 @@ import { useLocation } from "react-router";
 function Searchbar(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const { pathname } = useLocation();
-  console.log('PATH', pathname)
+
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
     props.searchProduct(event.target.value);

@@ -9,7 +9,7 @@ function AdminDashboard(props) {
       <div className="admin-dashboard">
         <ThemeSelector setter={props.setSelectedTheme} />
       <h1 style={{textAlign: "center"}}>Dashboard</h1>
-      <OrderHistory fetchcart={props.fetchCart} />
+      <OrderHistory />
       <AddProductForm fetchProducts={props.fetchProducts} />
       <AdminProductList products={props.products} fetchProducts={props.fetchProducts} />
       </div>
