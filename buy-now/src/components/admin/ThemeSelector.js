@@ -13,12 +13,13 @@ const ThemedButton = styled.button`
     margin-top: 50px;
     width: 100%;
     cursor: pointer;
+    background-color: #404042;
 `;
 
 const Container = styled.ul`
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 5em;
     padding: 10px;
 `;
