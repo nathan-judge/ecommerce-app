@@ -3,6 +3,7 @@ import { createGlobalStyle} from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   body {
     background-image: ${({ theme }) => theme.colors.body};
+    background: ${({ theme }) => theme.colors.body};
     color: ${({ theme }) => theme.colors.text};
    
     transition: all 0.50s linear;
@@ -82,6 +83,11 @@ a{
   border: 1px solid ${({ theme }) => theme.colors.checkout};
   font-family: 'Spartan', sans-serif;
  }
+ .ant-btn-primary{
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.navbar};
+ }
+
  .ant=btn:hover{
    color:blue;
  }
