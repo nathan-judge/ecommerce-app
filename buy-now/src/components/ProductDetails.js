@@ -1,9 +1,9 @@
 import { Form, Input, Button, Rate, Modal } from "antd";
 import { useParams } from "react-router";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import "./product-details.scss";
 import Reviews from "./Reviews";
+import apiHelpers from "../helpers/apiHelpers";
 const { TextArea } = Input;
 
 function ProductDetails(props) {
@@ -14,7 +14,7 @@ function ProductDetails(props) {
 
   const onFinish = async (values) => {
     try {
-      await axios.post("/api/reviews/" + product.id, {
+      await apiHelpers.postReview(product.id, {
         product_id: product.id,
         avg_rating: product.avg_rating,
         number_of_ratings: product.number_of_ratings,
@@ -27,15 +27,10 @@ function ProductDetails(props) {
     }
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-
   const fetchProduct = async () => {
     try {
-      const response = await axios.get("/api/product/" + id);
-      let product = response.data;
-      setProduct(product.product);
+      const product = await apiHelpers.fetchProduct(id);
+      setProduct(product);
       fetchReviews();
     } catch (e) {
       console.log("Error fetching product details", e);
@@ -44,8 +39,8 @@ function ProductDetails(props) {
 
   const fetchReviews = async () => {
     try {
-      const res = await axios.get("/api/reviews/" + id);
-      setReviews(res.data.reviews);
+      const reviews = await apiHelpers.fetchReviews(id);
+      setReviews(reviews);
     } catch (e) {
       console.log("Error fetching reviews", e);
     }
@@ -58,7 +53,7 @@ function ProductDetails(props) {
   return (
     <div>
       <div className="product-details-container">
-        <h2>Product Details</h2>
+        <h2 className="title-details">Product Details</h2>
         <br />
         <br />
         <div className="product-details">
@@ -77,16 +72,20 @@ function ProductDetails(props) {
               value={parseFloat(product.avg_rating)}
             />
             &nbsp;&nbsp;({product.number_of_ratings})
-            <div>{product.isSoldOut ? "Out of Stock" : "In Stock"}</div>
+            <div>{product.quantity < 1 ? "Out of Stock" : "In Stock"}</div>
             <div>
               <br />
               <span className="price-tag">${product.price}</span>
             </div>
             <br />
             <div style={{ display: "flex" }}>
-              <Button onClick={() => props.addToCart(product.id)}>
-                {props.added(product.id, props.cart)}
-              </Button>
+              {product.quantity < 1 ? (
+                <Button disabled="true">Add to cart</Button>
+              ) : (
+                <Button onClick={() => props.addToCart(product.id)}>
+                  {props.added(product.id, props.cart)}
+                </Button>
+              )}
               &nbsp;&nbsp;
               <Button
                 type="primary"
@@ -110,7 +109,6 @@ function ProductDetails(props) {
             labelCol={{
               span: 4
             }}
-            onFinishFailed={onFinishFailed}
           >
             <Form.Item
               label="Name"

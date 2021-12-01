@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 module.exports = (db) => {
+  
   router.post("/addProduct", async (req, res) => {
     try {
       const data = await db.query(

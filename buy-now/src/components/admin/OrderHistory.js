@@ -1,6 +1,6 @@
 import { Card } from "antd";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import apiHelpers from "../../helpers/apiHelpers";
 import "./admin-product-list.scss";
 
 function OrderHistory(props) {
@@ -8,8 +8,8 @@ const [count, setCount] = useState(0)
   
 const ordersCount = async () => {
   try {
-    const response = await axios.get("/api/admin/order_history");
-    setCount(response.data)
+    const ordersCount = await apiHelpers.totalOrders();
+    setCount(ordersCount)
     
   }
   catch(e) {

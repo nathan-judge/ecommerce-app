@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { Badge, Input } from "antd";
 import { useLocation } from "react-router";
 
-// import axios from "axios";
 
 function Searchbar(props) {
   const [searchTerm, setSearchTerm] = useState("");

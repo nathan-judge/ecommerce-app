@@ -1,13 +1,12 @@
 import ProductInCart from "./ProductInCart";
-import "./cart.scss";
-import axios from "axios";
-import { notification } from "antd";
+import { Button, notification, Tooltip } from "antd";
 import StripeCheckout from "react-stripe-checkout";
 import EmptyCart from "./EmptyCart";
-
+import "./cart.scss";
+import apiHelpers from "../helpers/apiHelpers";
+import helpers from "../helpers/helpers"
 
 function Cart(props) {
-
   const openNotificationWithIcon = (type) => {
     notification[type]({
       message: "Success!",
@@ -18,8 +17,13 @@ function Cart(props) {
 
   const handleToken = async (token, address) => {
     try {
-      
-      await axios.post("/api/checkout", { token, address, cart: props.cart, subtotal: props.subtotal, cart_id: localStorage.getItem("cart_id") });
+      await apiHelpers.checkout({
+        token,
+        address,
+        cart: props.cart,
+        subtotal: props.subtotal,
+        cart_id: localStorage.getItem("cart_id")
+      });
       openNotificationWithIcon("success");
       localStorage.removeItem("cart_id");
       props.setCart([]);
@@ -27,6 +31,7 @@ function Cart(props) {
       console.log(e);
     }
   };
+
 
   return (
     <div className="cart">
@@ -54,17 +59,27 @@ function Cart(props) {
             <h3>
               Subtotal ({props.itemsCount} items):${props.subtotal}
             </h3>
-              <StripeCheckout
-                stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
-                token={handleToken}
-                shippingAddress
-                billingAddress
-                amount={props.subtotal * 100}
-                
+            <StripeCheckout
+              stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
+              token={handleToken}
+              shippingAddress
+              billingAddress
+              amount={props.subtotal * 100}
+            >
+              {helpers.isCartValid(props.cart) ? (
+              <Button
+                style={{ fontFamily: "'Spartan', sans-serif" }}
+                className="btn btn-primary"
               >
-              <button style={{fontFamily: "'Spartan', sans-serif"}} className="btn btn-primary">
-              Checkout
-            </button></StripeCheckout>
+                Checkout
+              </Button>
+              ) : (
+                <Tooltip title="Some items in the cart are out of stock. Please remove them before proceeding!">
+                <Button disabled="true">Checkout</Button>
+                </Tooltip>
+              )}
+
+            </StripeCheckout>
           </div>
         </div>
       )}
