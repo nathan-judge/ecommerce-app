@@ -28,7 +28,6 @@ A great gifts ideal for Valentines Day, Christmas, New Year, business gift and o
 ('Silicone Touch Sensor Cat Night Lamp', 29.99, 25, 'https://i.etsystatic.com/32141424/r/il/a29bf2/3444882275/il_794xN.3444882275_5csz.jpg', 'Desktop Decor | Night Lamp | Description of power switch: Press the power switch on the bottom of the product to turn on the light (the color is warm yellow); press the power switch again to turn off the light. ', 'Lightings', 38, 4.9),
 ('Cute Duck Silicone LED Light', 37.81, 14, 'https://i.etsystatic.com/29070435/r/il/08f0af/3250787582/il_794xN.3250787582_mif0.jpg', 'ADORABLE DUCK: This adorable duck lamp can take your mind off any problems when you see it.', 'Lightings', 77, 1.3),
 ('Dried Flower Wreath', 10.95, 23, 'https://i.etsystatic.com/9992882/r/il/861cc6/2784804701/il_794xN.2784804701_am4c.jpg', 'A beautiful white and ivory wreath arranged on a gold hoop made with soft and fluffy dried pampas grass, white dried Italian ruscus, thistle and other dried flowers. This would be a gorgeous soft wall accent in a bedroom, kids room, sunroom, livingroom, entryway or anywhere you like to relax indoors!', 'Decorations', 32, 4.2),
-('Brass & Glass Globe Centrepiece', 29.95, 73, 'https://www.westelm.ca/site/WE/Product%20Images/brass-glass-globe-centerpiece-d4533-hero-z.jpg?resizeid=72&resizeh=1920&resizew=1920', 'Echoing the organic shape of a tree branch, our Brass + Glass Centrepiece balances bubbled glass globes atop a delicate, brass-finished base. It spans just under three feet, for a statement-making way to display candles or succulents as a terrarium. 34"w x 10"d x 6.5"h.', 'Decorations', 52, 3.2),
 ('10PCS Artificial Cherry Blossom Branches', 19.95, 38, 'https://m.media-amazon.com/images/I/61EPNA3L2yL._AC_.jpg', '✿ SUITABLE FOR: Artificial flowers, well made and vibrantly colored, looks realistic and beautiful. Perfect for decorating wedding party, home and garden, office, coffee house and so on. ✿ ADJUSTABLE LEGHT: Stem with steel wire; easy to bend and adjust as required. The stem can be shortened by means of cutting pliers. 5 pieces, flower length: 50cm/20inch. ✿ MULTI-PURPOSE: Artificial cherry blossom flower is great for indoor or outdoor decoration.', 'Decorations', 222, 3.7),
 ('Madison™ Black Pine Christmas Tree', 59.95, 43, 'https://i5.walmartimages.ca/images/Enlarge/702/322/6000203702322.jpg', 'The 6.5-ft Pre-Lit Madison Pine is the perfect solution for a non-traditional holiday decorating. This unique artificial Christmas tree features 600 ebony branch tips, 400 pre-strung mini clear lights that remain lit even if one burns out, and a convenient tree stand.', 'Decorations', 27, 4.9),
 ('Costway 6ft Artificial Christmas Tree', 129.95, 76, 'https://i5.walmartimages.com/asr/704275db-4218-4389-b2c6-d6bacafebb1c_1.32ad55e5733b4506a443f3da91a70542.jpeg', 'This is our brand new 6ft artificial Christmas tree which is made of eco-friendly and non-flammable PVC material to provide you with long-term quality service. The unique and distinctive pink tree is guaranteed to be an eye-catcher in any place to bring out romantic atmosphere. Simple style allows you to decorate it freely with Christmas stockings, colored balls, lights or other ornaments according to your own preferences. It is effortless to make the tree fluff due to its hinged construction, while also facilitating its assemble and storage.', 'Decorations', 52, 3.9),
@@ -36,7 +35,8 @@ A great gifts ideal for Valentines Day, Christmas, New Year, business gift and o
 ('African Women Fashion Canvas Set Wall Art', 79.95, 23, 'https://cdn.shopify.com/s/files/1/1568/8443/products/lobby_64_7cf2605a-251c-44af-a3eb-5fb1743efcd6_1200x1200.jpg?v=1625248573', 'African Women Fashion Canvas Set Wall Art is sure to elevate your decor. Bring fascinating beauty of Africa into your home and make your walls unique and eye-catching.', 'Paintings', 17, 4.2),
 ('Moroccan Ceramic Tile Multi Panel Canvas Wall Art', 139.95, 13, 'https://cdn.shopify.com/s/files/1/1568/8443/products/Moroccan_Ceramic_Tile_Multi_Panel_Canvas_Wall_Art_LR3_1200x1200.jpg?v=1603885130', 'Moroccan Ceramic Tile Multi Panel Canvas Wall Art carefully handcrafted to bring unique style into your home. Change the entire feel of any space and make an interesting statement with this abstract canvas print.', 'Paintings', 7, 4.2),
 ('Modern Glamour Burnett Statue', 104.55, 3, 'https://image.s5a.com/is/image/TheBay/772349760975_main?wid=984&hei=1312&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0', 'From the Modern Glamour Collection. Unearth the elegance of this decorative geode statue that brings major bling with geological glamour. The multi-faceted rock statue rests between the brackets of an iron stand as a mystical addition to modern tabletops and shelves.', 'Decorations', 27, 4.7),
-('Forged Metal Sculpture', 329.95, 2, 'https://www.potterybarn.ca/site/PB/Product%20Images/forged-metal-sculpture-hero-z.jpg?resizeid=88&resizeh=1920&resizew=1920', 'This sculpture has a delicacy that belies its iron construction. The overlapping squares create intriguing shadows on the wall.', 'Decorations', 2, 4.2);
+('Forged Metal Sculpture', 329.95, 2, 'https://www.potterybarn.ca/site/PB/Product%20Images/forged-metal-sculpture-hero-z.jpg?resizeid=88&resizeh=1920&resizew=1920', 'This sculpture has a delicacy that belies its iron construction. The overlapping squares create intriguing shadows on the wall.', 'Decorations', 2, 4.2),
+('Brass & Glass Globe Centrepiece', 29.95, 73, 'https://www.westelm.ca/site/WE/Product%20Images/brass-glass-globe-centerpiece-d4533-hero-z.jpg?resizeid=72&resizeh=1920&resizew=1920', 'Echoing the organic shape of a tree branch, our Brass + Glass Centrepiece balances bubbled glass globes atop a delicate, brass-finished base. It spans just under three feet, for a statement-making way to display candles or succulents as a terrarium. 34"w x 10"d x 6.5"h.', 'Decorations', 52, 3.2);
 
 INSERT INTO reviews (product_id, username, comment, rating)
 VALUES (2, 'Harry Potter', 'Great Painting', 4),
@@ -65,19 +65,19 @@ VALUES (2, 'Harry Potter', 'Great Painting', 4),
        
 
 INSERT INTO carts (id, product_id, number_of_items, order_placed)
-VALUES ('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 1, 1, true),
-('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 2, 3, true),
-('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 3, 5, true),
-('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 1, 10, true),
-('bac6f6a0-5229-11ec-bf63-0242ac130002', 3, 4, true),
-('f44da428-5229-11ec-bf63-0242ac130002', 8, 2, true),
-('fe6b1152-5229-11ec-bf63-0242ac130002', 9, 4, true),
-('06f1e472-522a-11ec-bf63-0242ac130002', 6, 2, true),
-('128f376c-522a-11ec-bf63-0242ac130002', 2, 5, true),
-('197bd24c-522a-11ec-bf63-0242ac130002', 1, 3, true),
-('2182ae52-522a-11ec-bf63-0242ac130002', 8, 1, true),
-('2ab3477a-522a-11ec-bf63-0242ac130002', 6, 3, true),
-('33b44874-522a-11ec-bf63-0242ac130002', 5, 2, true),
-('3b3be9c6-522a-11ec-bf63-0242ac130002', 9, 2, true);
+VALUES ('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 28, 1, true),
+('eb849fb1-3e23-4bfa-877a-8d9bb466e160', 28, 3, true),
+('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 28, 5, true),
+('688f19c7-f7ad-4d3d-bbf7-713cf1bd3bc7', 28, 10, true),
+('bac6f6a0-5229-11ec-bf63-0242ac130002', 28, 4, true),
+('f44da428-5229-11ec-bf63-0242ac130002', 28, 2, true),
+('fe6b1152-5229-11ec-bf63-0242ac130002', 28, 4, true),
+('06f1e472-522a-11ec-bf63-0242ac130002', 28, 2, true),
+('128f376c-522a-11ec-bf63-0242ac130002', 28, 5, true),
+('197bd24c-522a-11ec-bf63-0242ac130002', 28, 3, true),
+('2182ae52-522a-11ec-bf63-0242ac130002', 28, 1, true),
+('2ab3477a-522a-11ec-bf63-0242ac130002', 28, 3, true),
+('33b44874-522a-11ec-bf63-0242ac130002', 28, 2, true),
+('3b3be9c6-522a-11ec-bf63-0242ac130002', 28, 2, true);
 
 
