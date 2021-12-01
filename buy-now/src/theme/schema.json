@@ -59,7 +59,7 @@
           "checkout":"white",
           "backitem":"#40404280",
           "productback": "url('https://cdn3.vectorstock.com/i/1000x1000/41/97/blue-xmas-background-vector-984197.jpg')",
-          "checkoutback":"rgba(255, 255, 255, 0.1);,",
+          "checkoutback":"rgba(255, 255, 255, 80);,",
           "button": {
             "text": "#ffffff",
             "background": "#0d47a1"
@@ -75,7 +75,7 @@
         "id": "T_004",
         "name": "Halloween",
         "colors": {
-          "body": "url('https://cdn.pixabay.com/photo/2020/09/23/19/58/halloween-5596921__340.jpg')",
+          "body": "url('https://i.pinimg.com/originals/10/23/3d/10233db29952e589ccaa7239cc5b3e4e.png')",
           "text": "white",
           "navbar": "#0000008a",
           "navTitle":"white",
@@ -99,9 +99,9 @@
         "id": "T_005",
         "name": "Canada Day",
         "colors": {
-          "body": "url('https://media.istockphoto.com/vectors/canadian-maple-leaf-symbol-seamless-pattern-illustration-vector-id947975882?k=20&m=947975882&s=612x612&w=0&h=YcP-3-aDpeSEjXJRhhuKzjf1Trj53mqG3jqTw8z7S5Q=')",
+          "body": "white",
           "text": "white",
-          "navbar": "#e40613a6",
+          "navbar": "red",
           "navTitle":"white",
           "searchBtn":"#404042",
           "checkout":"white",
