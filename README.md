@@ -38,33 +38,33 @@ STRETCH FEATURE:
 -Create/Adding more themes
 
 # Final product
-!["Home Page"](docs\homepage.PNG)
+!["Home Page"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/homepage.PNG?raw=true)
 
-!["Cart"](docs\cart.PNG)
+!["Cart"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/cart.PNG?raw=true)
 
-!["Product detail"](docs\productdetail.PNG)
+!["Product detail"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/productdetail.PNG?raw=true)
 
-!["Admin Page"](docs\adminpage.PNG)
+!["Admin Page"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/adminpage.PNG?raw=true)
 
-!["Add Product form"](docs\addform.PNG)
+!["Add Product form"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/addform.PNG?raw=true)
 
-!["Edit Product form"](docs\editform.PNG)
+!["Edit Product form"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/editform.PNG?raw=true)
 
-!["Delete Product"](docs\deleteform.PNG)
+!["Delete Product"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/deleteform.PNG?raw=true)
 
-!["Checkout Page"](docs\checkoutform.PNG)
+!["Checkout Page"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/checkoutform.PNG?raw=true)
 
-!["Payment with stripe"](docs\paymentform.PNG)
+!["Payment with stripe"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/paymentform.PNG?raw=true)
 
-!["Order notification"](docs\orderconfirmation.PNG)
+!["Order notification"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/orderconfirmation.PNG?raw=true)
 
-!["Alan AI"](docs\features.PNG)
+!["Alan AI"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/features.PNG?raw=true)
 
-!["Chat box"](docs\chatbox.PNG)
+!["Chat box"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/chatbox.PNG?raw=true)
 
-!["Review form"](docs\addreview.PNG)
+!["Review form"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/addreview.PNG?raw=true)
 
-!["Search function"](docs\search.PNG)
+!["Search function"](https://github.com/nathan-judge/ecommerce-app/blob/main/docs/search.PNG?raw=true)
 
 
 # Dependencies:
