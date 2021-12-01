@@ -109,7 +109,7 @@ a{
   }
   .nav-title{
     padding-top: 1.1em;
-    padding-left: 1em;
+    padding-left: 0.5em;
 }
   .product-title{
     color: ${({ theme }) => theme.colors.text};

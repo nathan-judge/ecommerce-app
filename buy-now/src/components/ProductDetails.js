@@ -80,7 +80,7 @@ function ProductDetails(props) {
             <br />
             <div style={{ display: "flex" }}>
               {product.quantity < 1 ? (
-                <Button disabled="true">Add to cart</Button>
+                <Button disabled={true}>Add to cart</Button>
               ) : (
                 <Button onClick={() => props.addToCart(product.id)}>
                   {props.added(product.id, props.cart)}

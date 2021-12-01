@@ -9,6 +9,7 @@ const DeleteProductForm = (props) => {
     try {
       await apiHelpers.deleteProduct(id);
       props.fetchProducts();
+      props.fetchCart();
       props.setIsDeleteModalVisible(false);
     } catch (e) {
       console.log("Error deleting product", e);
@@ -37,9 +38,8 @@ const DeleteProductForm = (props) => {
             <Button
               htmlType="submit"
               type="primary"
-              onClick={(e) => console.log(id)}
             >
-              Submit
+              Delete
             </Button>{" "}
             &nbsp;
             <Button

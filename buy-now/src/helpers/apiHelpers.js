@@ -108,7 +108,7 @@ const apiHelpers = {
  * @param {Number} id 
  * @param {Object} data 
  */
-  async EditProduct(id, data) {
+  async editProduct(id, data) {
     await axios.post("/api/admin/edit_product/" + id, data)
   },
 /**

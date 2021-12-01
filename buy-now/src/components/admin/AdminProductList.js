@@ -18,6 +18,7 @@ function AdminProductList(props) {
               category={product.category}
               product={product}
               fetchProducts={props.fetchProducts}
+              fetchCart={props.fetchCart}
             />
           );
         })}

@@ -28,9 +28,7 @@ const EditProductForm = (props) => {
       <Modal
         title="Edit Product"
         visible={props.isEditModalVisible}
-        // onOk={handleSubmit}
         onCancel={() => props.setIsEditModalVisible(false)}
-        // okText="Submit"
         footer={false}
       >
         <Form
@@ -119,7 +117,6 @@ const EditProductForm = (props) => {
             <Button
               htmlType="submit"
               type="primary"
-              onClick={(e) => console.log(id)}
             >
               Submit
             </Button>{" "}

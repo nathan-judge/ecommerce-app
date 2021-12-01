@@ -54,6 +54,7 @@ function AdminProductListItem(props) {
             Delete
           </Button>
           <DeleteProductForm
+            fetchCart={props.fetchCart}
             product={props.product}
             isDeleteModalVisible={isDeleteModalVisible}
             setIsDeleteModalVisible={setIsDeleteModalVisible}

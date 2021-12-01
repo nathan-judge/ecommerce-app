@@ -11,7 +11,7 @@ function AdminDashboard(props) {
       <h1 style={{textAlign: "center"}}>Dashboard</h1>
       <OrderHistory />
       <AddProductForm fetchProducts={props.fetchProducts} />
-      <AdminProductList products={props.products} fetchProducts={props.fetchProducts} />
+      <AdminProductList products={props.products} fetchCart={props.fetchCart} fetchProducts={props.fetchProducts} />
       </div>
     );
   }
