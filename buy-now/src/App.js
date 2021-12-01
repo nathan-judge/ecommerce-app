@@ -91,7 +91,7 @@ function App() {
 
   useEffect(() => {
     addResponseMessage(
-      "Welcome to BuyNow! Try out our AI and make a product query (i.e. Is (item) in stock?) Otherwise, feel free to send a message here, our customer service will respond shortly!"
+      "Welcome to BuyNow!"
     );
     socket.on("receive-message", (message) => {
       addResponseMessage(message);
@@ -178,7 +178,7 @@ function App() {
             <Widget
               senderPlaceHolder="Type a message..."
               title={`Welcome!`}
-              subtitle="Chat with our customer service!"
+              subtitle="Chatbox!"
               handleNewUserMessage={handleNewUserMessage}
             />
           </BrowserRouter>
